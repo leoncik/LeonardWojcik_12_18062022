@@ -1,3 +1,19 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
 }

@@ -1,0 +1,27 @@
+.secondary-navigation {
+    background-color: black;
+    width: 117px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+
+.secondary-navigation__item {
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.secondary-navigation p {
+    color: white;
+    margin-top: 0;
+    writing-mode: sideways-lr;
+}

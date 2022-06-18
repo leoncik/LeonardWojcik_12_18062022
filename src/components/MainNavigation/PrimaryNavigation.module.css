@@ -1,0 +1,19 @@
+.main-nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 87px 31px 29px;
+    background-color: black;
+    color: white;
+    margin-bottom: 0;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10.5px;
+}
+.header-logo p {
+    color: red;
+    margin: 0;
+}
