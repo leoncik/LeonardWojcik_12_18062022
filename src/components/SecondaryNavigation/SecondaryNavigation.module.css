@@ -1,4 +1,7 @@
 .secondary-navigation {
+    top: 0;
+    z-index: -1;
+    position: fixed;
     background-color: black;
     width: 117px;
     height: 100%;
@@ -7,7 +10,6 @@
     align-items: center;
     justify-content: end;
 }
-
 
 .secondary-navigation__item {
     background-color: white;
@@ -24,4 +26,6 @@
     color: white;
     margin-top: 0;
     writing-mode: sideways-lr;
+    font-size: 10px;
+    margin-bottom: 5px;
 }

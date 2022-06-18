@@ -1,0 +1,11 @@
+.nutrition-item {
+    display: flex;
+    gap: 24px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+}
+
+/* Todo : set background color opacity to 50% of the svg color */
+.nutrition-item__icon {
+    background-color: #ff000060;
+}

@@ -1,0 +1,10 @@
+.profile-content {
+    margin-left: 200px;
+    margin-right: 90px;
+    width: 100%;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+}
