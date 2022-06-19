@@ -2,11 +2,12 @@ import ActivityGraphContainer from '../components/ActivityGraphContainer/Activit
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 import classes from './Profile.module.css';
+import { MOCKED_DATA } from '../helpers/MOCKED_DATA';
 
 function Profile() {
     return (
         <div className={classes['profile-content']}>
-            <WelcomingInfo />
+            <WelcomingInfo firstName={MOCKED_DATA[0].firstName} />
             <div className={classes.stat}>
                 <ActivityGraphContainer />
                 <NutritionInformationContainer />

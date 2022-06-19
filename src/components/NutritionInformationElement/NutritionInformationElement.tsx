@@ -1,7 +1,17 @@
 import classes from './NutritionInformationElement.module.css';
 import energy from '../../assets/icons/energy.svg';
 
-function NutritionInformationElement() {
+type NutritionInformationElementProps = {
+    type: string;
+    quantity: number;
+    unit: string;
+};
+
+function NutritionInformationElement({
+    type,
+    quantity,
+    unit,
+}: NutritionInformationElementProps) {
     return (
         <div className={classes['nutrition-item']}>
             <div className={classes['nutrition-item__icon']}>
@@ -9,10 +19,10 @@ function NutritionInformationElement() {
             </div>
             <div className="nutrition-item_values">
                 <p>
-                    <span>Quantité</span>
-                    <span>Unité</span>
+                    <span>{quantity}</span>
+                    <span>{unit}</span>
                 </p>
-                <p>Type</p>
+                <p>{type}</p>
             </div>
         </div>
     );
