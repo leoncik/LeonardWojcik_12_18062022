@@ -1,5 +1,10 @@
 .nutritions-info-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 39px;
+    grid-area: NutritionInfo;
+
+    background-color: orange;
+    border-radius: 5px;
 }

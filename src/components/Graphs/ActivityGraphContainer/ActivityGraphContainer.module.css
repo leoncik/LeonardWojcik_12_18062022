@@ -1,0 +1,8 @@
+.graph-container {
+    grid-area: ActivityGraph;
+    width: auto;
+    height: 320px;
+
+    background-color: #e60000;
+    border-radius: 5px;
+}

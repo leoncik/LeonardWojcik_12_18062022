@@ -1,8 +1,8 @@
-import classes from "./SecondaryNavigation.module.css"
-import meditation from "../../assets/icons/meditation.svg"
-import swimming from "../../assets/icons/swimming.svg"
-import cycling from "../../assets/icons/cycling.svg"
-import weightlifting from "../../assets/icons/weightlifting.svg"
+import classes from './SecondaryNavigation.module.css';
+import meditation from '../../assets/icons/svg-format/meditation.svg';
+import swimming from '../../assets/icons/svg-format/swimming.svg';
+import cycling from '../../assets/icons/svg-format/cycling.svg';
+import weightlifting from '../../assets/icons/svg-format/weightlifting.svg';
 
 function SecondaryNavigation() {
     return (
@@ -24,9 +24,8 @@ function SecondaryNavigation() {
                 </ul>
             </nav>
             <p>Copiryght, SportSee 2020</p>
-
         </div>
-    )
+    );
 }
 
-export default SecondaryNavigation
+export default SecondaryNavigation;

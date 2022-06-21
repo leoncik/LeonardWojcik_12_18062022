@@ -1,0 +1,7 @@
+.graph-container {
+    height: 350px;
+    grid-area: SkillsGraph;
+
+    background-color: green;
+    border-radius: 5px;
+}

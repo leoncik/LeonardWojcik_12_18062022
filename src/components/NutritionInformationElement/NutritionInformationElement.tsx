@@ -1,28 +1,38 @@
 import classes from './NutritionInformationElement.module.css';
-import energy from '../../assets/icons/energy.svg';
 
 type NutritionInformationElementProps = {
     type: string;
     quantity: number;
     unit: string;
+    icon: JSX.Element;
 };
 
 function NutritionInformationElement({
     type,
     quantity,
     unit,
+    icon,
 }: NutritionInformationElementProps) {
     return (
         <div className={classes['nutrition-item']}>
-            <div className={classes['nutrition-item__icon']}>
-                <img src={energy} alt="" />
+            {/* Retrieve the fill value of the SVG and set background to this value with more opacity */}
+            <div
+                className={classes['nutrition-item__icon']}
+                style={{
+                    background: `${icon.props.fillColor.replace(
+                        /[^,]+(?=\))/,
+                        '0.05'
+                    )}`,
+                }}
+            >
+                {icon}
             </div>
-            <div className="nutrition-item_values">
-                <p>
+            <div className={classes['nutrition-item-data']}>
+                <p className={classes['nutrition-item__values']}>
                     <span>{quantity}</span>
                     <span>{unit}</span>
                 </p>
-                <p>{type}</p>
+                <p className={classes['nutrition-item__type']}>{type}</p>
             </div>
         </div>
     );
