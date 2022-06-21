@@ -1,4 +1,8 @@
-import ActivityGraphContainer from '../components/ActivityGraphContainer/ActivityGraphContainer';
+import ActivityGraphContainer from '../components/Graphs/ActivityGraphContainer/ActivityGraphContainer';
+import SessionLengthGraphContainer from '../components/Graphs/SessionLengthGraphContainer/SessionLengthGraphContainer';
+import SkillsGraphContainer from '../components/Graphs/SkillsGraphContainer/SkillsGraphContainer';
+import ScoreGraphContainer from '../components/Graphs/ScoreGraphContainer/ScoreGraphContainer';
+
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 import classes from './Profile.module.css';
@@ -10,6 +14,9 @@ function Profile() {
             <WelcomingInfo firstName={MOCKED_DATA[0].firstName} />
             <div className={classes.stat}>
                 <ActivityGraphContainer />
+                <SessionLengthGraphContainer />
+                <SkillsGraphContainer />
+                <ScoreGraphContainer />
                 <NutritionInformationContainer />
             </div>
         </div>
