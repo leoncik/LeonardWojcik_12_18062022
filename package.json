@@ -9,6 +9,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/d3": "^7.4.0",
+    "d3": "^7.4.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
