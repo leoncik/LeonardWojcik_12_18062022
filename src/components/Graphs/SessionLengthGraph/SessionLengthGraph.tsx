@@ -1,11 +1,4 @@
-import {
-    LineChart,
-    Line,
-    CartesianGrid,
-    XAxis,
-    Tooltip,
-    ResponsiveContainer,
-} from 'recharts';
+import { LineChart, Line, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 function SessionLengthGraph() {
@@ -17,11 +10,19 @@ function SessionLengthGraph() {
                 data={MOCKED_DATA[0].activityInfo.sessionsLength}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
             >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
                 <Tooltip />
-                <Line type="monotone" dataKey="Day" stroke="#8884d8" />
-                <Line type="monotone" dataKey="Length" stroke="#82ca9d" />
+                <XAxis
+                    dataKey="Day"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fill: 'white' }}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="Length"
+                    stroke="white"
+                    dot={false}
+                />
             </LineChart>
         </ResponsiveContainer>
     );

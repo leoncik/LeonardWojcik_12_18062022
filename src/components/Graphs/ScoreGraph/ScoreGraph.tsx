@@ -16,7 +16,7 @@ function ScoreGraph() {
                 height={circleSize}
                 cx={circleSize / 2}
                 cy={circleSize / 2}
-                innerRadius={112}
+                innerRadius={100}
                 outerRadius={118}
                 barSize={30}
                 data={MOCKED_DATA[0].activityInfo.result}
@@ -43,6 +43,15 @@ function ScoreGraph() {
                     className="progress-label"
                 >
                     {MOCKED_DATA[0].activityInfo.result[0].value * 100}%
+                </text>
+                <text
+                    x={circleSize / 2}
+                    y={circleSize / 1.7}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className="progress-label"
+                >
+                    de votre objectif
                 </text>
             </RadialBarChart>
         </ResponsiveContainer>

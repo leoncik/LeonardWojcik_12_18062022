@@ -17,18 +17,11 @@ function SkillsGraph() {
                 data={MOCKED_DATA[0].activityInfo.skills}
             >
                 <PolarGrid />
-                <PolarAngleAxis dataKey="type" />
-                <Radar
-                    name="Type"
-                    dataKey="type"
-                    stroke="orange"
-                    fill="orange"
-                    fillOpacity={0.6}
-                />
+                <PolarAngleAxis dataKey="type" tick={{ fill: 'white' }} />
                 <Radar
                     name="Valeur"
                     dataKey="value"
-                    stroke="orange"
+                    stroke="none"
                     fill="red"
                     fillOpacity={0.6}
                 />
