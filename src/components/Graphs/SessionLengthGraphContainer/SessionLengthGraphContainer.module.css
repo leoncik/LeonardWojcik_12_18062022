@@ -1,5 +1,5 @@
 .graph-container {
-    height: 350px;
+    height: auto;
     grid-area: SessionLengthGraph;
 
     background-color: #ff0000;

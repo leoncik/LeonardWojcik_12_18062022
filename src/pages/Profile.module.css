@@ -14,3 +14,12 @@
 
     /* background-color: black; */
 }
+
+/* Support for 1024x780 screens */
+@media all and (max-width: 1024px) {
+    .profile-content {
+        margin-left: 150px;
+        margin-right: 22.5px;
+        width: 100%;
+    }
+}

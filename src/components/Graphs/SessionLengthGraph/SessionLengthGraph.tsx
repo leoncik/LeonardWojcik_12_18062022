@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+import { CustomTooltip } from './CustomTooltip';
 
 function SessionLengthGraph() {
     return (
@@ -10,7 +11,7 @@ function SessionLengthGraph() {
                 data={MOCKED_DATA[0].activityInfo.sessionsLength}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
             >
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} />
                 <XAxis
                     dataKey="Day"
                     tickLine={false}
