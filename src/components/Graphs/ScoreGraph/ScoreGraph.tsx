@@ -5,6 +5,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+import { CustomLabel } from './CustomLabel';
 
 function ScoreGraph() {
     const circleSize = 300;
@@ -34,25 +35,13 @@ function ScoreGraph() {
                     dataKey="value"
                     cornerRadius={circleSize / 2}
                     fill="red"
+                    label={
+                        <CustomLabel
+                            value={MOCKED_DATA[0].activityInfo.result[0].value}
+                        />
+                    }
+                    // label={{ position: 'center' }}
                 />
-                <text
-                    x={circleSize / 3}
-                    y={circleSize / 3}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="progress-label"
-                >
-                    {MOCKED_DATA[0].activityInfo.result[0].value * 100}%
-                </text>
-                <text
-                    x={circleSize / 3}
-                    y={circleSize / 2.4}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="progress-label"
-                >
-                    de votre objectif
-                </text>
             </RadialBarChart>
         </ResponsiveContainer>
     );
