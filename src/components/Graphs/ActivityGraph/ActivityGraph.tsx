@@ -5,17 +5,44 @@ import {
     YAxis,
     XAxis,
     CartesianGrid,
-    Legend,
     Tooltip,
 } from 'recharts';
+import { CustomTooltip } from './CustomTooltip';
+
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+import classes from './ActivityGraph.module.css';
+
+// Todo : add custom background color on hover.
 
 function ActivityGraph() {
     return (
-        <div style={{ width: '100%', height: 300 }}>
-            <ResponsiveContainer>
+        <div style={{ width: '100%', height: '100%' }}>
+            {/* HEADER OF THE GRAPH */}
+            <header className={classes['graph-header']}>
+                <div className={classes['graph-title']}>
+                    <h2>Activité quotidienne</h2>
+                </div>
+                <div className={classes['graph-legend']}>
+                    <ul>
+                        <li className={classes['graph-legend__weight']}>
+                            Poids (kg)
+                        </li>
+                        <li className={classes['graph-legend__calories']}>
+                            Calories brûlées (kCal)
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            {/* GRAPH */}
+            <ResponsiveContainer width="100%" height="80%">
                 <BarChart data={MOCKED_DATA[0].activityInfo.dailyActivity}>
-                    <Tooltip />
+                    <CartesianGrid strokeDasharray="4" vertical={false} />
+                    <Tooltip
+                        content={<CustomTooltip />}
+                        position={{ y: -15 }}
+                        offset={65}
+                    />
                     <Bar
                         name="Poids (kg)"
                         type="monotone"
@@ -38,13 +65,6 @@ function ActivityGraph() {
                         axisLine={false}
                     />
                     <XAxis dataKey="day" tickLine={false} />
-                    <CartesianGrid strokeDasharray="4" vertical={false} />
-                    <Legend
-                        align="right"
-                        verticalAlign="top"
-                        height={36}
-                        iconType="circle"
-                    />
                 </BarChart>
             </ResponsiveContainer>
         </div>

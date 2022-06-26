@@ -1,0 +1,46 @@
+@import '../../../helpers/css-variables.css';
+
+/* GRAPH HEADER */
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    margin-right: 26px;
+    margin-bottom: 25px;
+}
+.graph-header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 32px;
+    font-size: 15px;
+}
+
+.graph-legend ul {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 0;
+}
+
+.graph-legend__weight,
+.graph-legend__calories {
+    position: relative;
+    list-style: disc;
+    color: #74798c;
+}
+
+.graph-legend__weight::marker {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+}
+.graph-legend__calories::marker {
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+/* TOOLTIP */
+.custom-tooltip {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+}
