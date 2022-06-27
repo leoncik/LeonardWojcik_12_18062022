@@ -1,7 +1,7 @@
 .graph-container {
-    height: 350px;
+    height: auto;
     grid-area: ScoreGraph;
 
-    background-color: yellow;
+    background-color: #fbfbfb;
     border-radius: 5px;
 }

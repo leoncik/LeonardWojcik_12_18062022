@@ -12,7 +12,7 @@ function WelcomingInfo({ firstName }: WelcomingInfoProps) {
                 <span className={classes['user-name']}>{firstName}</span>
             </h1>
             {/* Custom conditional messaged based on previous performances */}
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
     );
 }

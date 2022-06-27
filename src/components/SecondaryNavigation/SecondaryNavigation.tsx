@@ -23,7 +23,7 @@ function SecondaryNavigation() {
                     </li>
                 </ul>
             </nav>
-            <p>Copiryght, SportSee 2020</p>
+            <p>Copyright, SportSee 2020</p>
         </div>
     );
 }

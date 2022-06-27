@@ -65,27 +65,65 @@ export const MOCKED_DATA = [
             ],
             sessionsLength: [
                 {
-                    // Todo : make function to keep only the first letter when displaying on graph
-                    Lun: 60,
-                    Mar: 46,
-                    Mer: 97,
-                    Jeu: 58,
-                    Ven: 37,
-                    Sam: 124,
-                    Dim: 31,
+                    Day: 'L',
+                    Length: 60,
+                },
+                {
+                    Day: 'M',
+                    Length: 46,
+                },
+                {
+                    Day: 'M',
+                    Length: 97,
+                },
+                {
+                    Day: 'J',
+                    Length: 58,
+                },
+                {
+                    Day: 'V',
+                    Length: 37,
+                },
+                {
+                    Day: 'S',
+                    Length: 124,
+                },
+                {
+                    Day: 'D',
+                    Length: 31,
                 },
             ],
             skills: [
                 {
-                    Intensité: 82,
-                    Vitesse: 46,
-                    Force: 211,
-                    Endurance: 190,
-                    Énergie: 139,
-                    Cardio: 124,
+                    type: 'Intensité',
+                    value: 82,
+                },
+                {
+                    type: 'Vitesse',
+                    value: 46,
+                },
+                {
+                    type: 'Force',
+                    value: 211,
+                },
+                {
+                    type: 'Endurance',
+                    value: 190,
+                },
+                {
+                    type: 'Énergie',
+                    value: 139,
+                },
+                {
+                    type: 'Cardio',
+                    value: 124,
                 },
             ],
-            result: '14%',
+            result: [
+                {
+                    value: 0.42,
+                },
+            ],
         },
     },
 ];
