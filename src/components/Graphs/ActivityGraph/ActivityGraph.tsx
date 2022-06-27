@@ -42,6 +42,7 @@ function ActivityGraph() {
                         content={<CustomTooltip />}
                         position={{ y: -15 }}
                         offset={65}
+                        cursor={{ fill: 'rgba(196, 196, 196, 0.5)' }}
                     />
                     <Bar
                         name="Poids (kg)"
