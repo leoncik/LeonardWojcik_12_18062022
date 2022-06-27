@@ -26,9 +26,9 @@ function SessionLengthGraph() {
                     stroke="white"
                     dot={false}
                     activeDot={{
-                        r: 8,
+                        r: 5,
                         stroke: 'rgba(255, 255, 255, 0.2)',
-                        strokeWidth: 18,
+                        strokeWidth: 13,
                     }}
                 />
             </LineChart>

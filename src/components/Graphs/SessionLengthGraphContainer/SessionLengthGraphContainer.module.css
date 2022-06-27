@@ -1,7 +1,0 @@
-.graph-container {
-    height: auto;
-    grid-area: SessionLengthGraph;
-
-    background-color: #ff0000;
-    border-radius: 5px;
-}

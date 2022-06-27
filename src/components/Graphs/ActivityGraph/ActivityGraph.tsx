@@ -50,7 +50,7 @@ function ActivityGraph() {
                         dataKey="weight"
                         fill="#282D30"
                         barSize={12}
-                        radius={[3, 3, 0, 0]}
+                        radius={[5, 5, 0, 0]}
                     />
                     <Bar
                         name="Calories brûlées (kCal)"
@@ -58,7 +58,7 @@ function ActivityGraph() {
                         dataKey="calories"
                         fill="#E60000"
                         barSize={12}
-                        radius={[3, 3, 0, 0]}
+                        radius={[5, 5, 0, 0]}
                     />
                     <YAxis
                         orientation="right"

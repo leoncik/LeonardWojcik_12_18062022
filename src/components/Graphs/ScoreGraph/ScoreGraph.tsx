@@ -40,7 +40,7 @@ function ScoreGraph() {
 
                 {/* CUSTOM LABEL (Center of the chart) */}
                 <circle
-                    text-anchor="middle"
+                    textAnchor="middle"
                     cx="50%"
                     cy="50%"
                     r="70"
@@ -49,7 +49,7 @@ function ScoreGraph() {
                 <text
                     x="50%"
                     y="48%"
-                    text-anchor="middle"
+                    textAnchor="middle"
                     fill="#282D30"
                     fontSize="25"
                 >
@@ -57,7 +57,7 @@ function ScoreGraph() {
                     {/* {MOCKED_DATA[0].activityInfo.result *100}% */}
                     {0.42 * 100}%
                 </text>
-                <text x="50%" y="58%" text-anchor="middle" fill="#74798C">
+                <text x="50%" y="58%" textAnchor="middle" fill="#74798C">
                     de votre objectif
                 </text>
             </RadialBarChart>

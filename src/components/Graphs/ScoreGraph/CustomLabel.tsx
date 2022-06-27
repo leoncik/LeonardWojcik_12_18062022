@@ -6,7 +6,7 @@ export const CustomLabel = ({ value }: CustomLabelProps) => {
     return (
         <g className="score-inner-content">
             <circle
-                text-anchor="middle"
+                textAnchor="middle"
                 cx="50%"
                 cy="50%"
                 r="75"
@@ -15,13 +15,13 @@ export const CustomLabel = ({ value }: CustomLabelProps) => {
             <text
                 x="50%"
                 y="48%"
-                text-anchor="middle"
+                textAnchor="middle"
                 fill="#282D30"
                 fontSize="25"
             >
                 {value * 100}%
             </text>
-            <text x="50%" y="58%" text-anchor="middle" fill="#74798C">
+            <text x="50%" y="58%" textAnchor="middle" fill="#74798C">
                 de votre objectif
             </text>
         </g>

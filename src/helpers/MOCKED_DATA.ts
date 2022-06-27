@@ -1,4 +1,17 @@
-export const MOCKED_DATA = [
+interface MOCKED_DATAInterface {
+    id: number;
+    firstName: string;
+    lastName: string;
+    nutritionInfo: Array<{ type: string; quantity: number; unit: string }>;
+    activityInfo: {
+        dailyActivity: Array<{ day: number; weight: number; calories: number }>;
+        sessionsLength: Array<{ Day: string; Length: number }>;
+        skills: Array<{ type: string; value: number }>;
+        result: Array<{ value: number }>;
+    };
+}
+
+export const MOCKED_DATA: MOCKED_DATAInterface[] = [
     {
         id: 1,
         firstName: 'Rocky',
