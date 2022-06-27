@@ -5,6 +5,8 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+
+// Todo : try to find an efficient way to import CustomLabel as component.
 import { CustomLabel } from './CustomLabel';
 
 function ScoreGraph() {
@@ -31,17 +33,33 @@ function ScoreGraph() {
                     tick={false}
                 />
                 <RadialBar
-                    background
                     dataKey="value"
                     cornerRadius={circleSize / 2}
                     fill="red"
-                    label={
-                        <CustomLabel
-                            value={MOCKED_DATA[0].activityInfo.result[0].value}
-                        />
-                    }
-                    // label={{ position: 'center' }}
                 />
+
+                {/* CUSTOM LABEL (Center of the chart) */}
+                <circle
+                    text-anchor="middle"
+                    cx="50%"
+                    cy="50%"
+                    r="70"
+                    style={{ fill: 'white' }}
+                ></circle>
+                <text
+                    x="50%"
+                    y="48%"
+                    text-anchor="middle"
+                    fill="#282D30"
+                    fontSize="25"
+                >
+                    {/* Todo: fix type problem */}
+                    {/* {MOCKED_DATA[0].activityInfo.result *100}% */}
+                    {0.42 * 100}%
+                </text>
+                <text x="50%" y="58%" text-anchor="middle" fill="#74798C">
+                    de votre objectif
+                </text>
             </RadialBarChart>
         </ResponsiveContainer>
     );
