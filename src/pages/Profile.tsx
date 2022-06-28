@@ -1,17 +1,48 @@
+import { useEffect, useState } from 'react';
+
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
-import classes from './Profile.module.css';
-import { MOCKED_DATA } from '../helpers/MOCKED_DATA';
+
+// Graphs components
 import GraphContainer from '../components/Graphs/GraphContainer/GraphContainer';
 import SkillsGraph from '../components/Graphs/SkillsGraph/SkillsGraph';
 import ScoreGraph from '../components/Graphs/ScoreGraph/ScoreGraph';
 import SessionLengthGraph from '../components/Graphs/SessionLengthGraph/SessionLengthGraph';
 import ActivityGraph from '../components/Graphs/ActivityGraph/ActivityGraph';
 
+// Mocked data
+import { MOCKED_DATA } from '../helpers/MOCKED_DATA';
+
+// CSS
+import classes from './Profile.module.css';
+
 function Profile() {
+    // API call
+    const [userData, setUserData] = useState('');
+    useEffect(() => {
+        const fetchData = async (
+            url: string,
+            err = '<p>ERREUR : impossible de récupérer les données de votre profil. Veuillez réessayer plus tard.</p>',
+            method = 'GET',
+            headers = {}
+        ) => {
+            try {
+                const response = await fetch(url, { method, headers });
+                console.log('test');
+                let myUser = await response.json();
+                console.log(myUser.data.userInfos.firstName);
+                setUserData(myUser.data.userInfos.firstName);
+            } catch (error) {
+                console.log(error, err);
+            }
+            console.log(userData);
+        };
+        fetchData('http://localhost:3000/user/18');
+    }, []);
+
     return (
         <div className={classes['profile-content']}>
-            <WelcomingInfo firstName={MOCKED_DATA[0].firstName} />
+            <WelcomingInfo firstName={userData} />
             <div className={classes.stat}>
                 <GraphContainer
                     GraphElement={<ActivityGraph />}
