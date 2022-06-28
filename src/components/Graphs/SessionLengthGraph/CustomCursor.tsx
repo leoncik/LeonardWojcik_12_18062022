@@ -1,7 +1,12 @@
 import { Rectangle } from 'recharts';
 
-export const CustomCursor = (props: any) => {
-    const { points, width, height } = props;
+type CustomCursorProps = {
+    points: Array<{ x: number; y: number }>;
+    width: number;
+    height: number;
+};
+
+export const CustomCursor = ({ points, width, height }: CustomCursorProps) => {
     const { x, y } = points[0];
     return (
         <Rectangle

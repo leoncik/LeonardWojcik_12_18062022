@@ -14,9 +14,6 @@ function SkillsGraph() {
                 cx="50%"
                 cy="50%"
                 outerRadius="75%"
-                // outerRadius={90}
-                // width={730}
-                // height={250}
                 data={MOCKED_DATA[0].activityInfo.skills}
             >
                 <PolarGrid />
@@ -28,8 +25,7 @@ function SkillsGraph() {
                     name="Valeur"
                     dataKey="value"
                     stroke="none"
-                    fill="red"
-                    fillOpacity={0.6}
+                    fill="rgba(255, 1, 1, 0.7)"
                 />
             </RadarChart>
         </ResponsiveContainer>

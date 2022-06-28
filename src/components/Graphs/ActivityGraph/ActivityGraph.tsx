@@ -12,8 +12,6 @@ import { CustomTooltip } from './CustomTooltip';
 import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 import classes from './ActivityGraph.module.css';
 
-// Todo : add custom background color on hover.
-
 function ActivityGraph() {
     return (
         <div style={{ width: '100%', height: '100%' }}>

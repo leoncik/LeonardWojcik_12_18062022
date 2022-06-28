@@ -10,6 +10,24 @@ function SessionLengthGraph() {
                 data={MOCKED_DATA[0].activityInfo.sessionsLength}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
             >
+                <text
+                    x="8%"
+                    y="12%"
+                    textAnchor="left"
+                    fill="White"
+                    fontWeight={500}
+                >
+                    Durée moyenne des
+                </text>
+                <text
+                    x="8%"
+                    y="18%"
+                    textAnchor="left"
+                    fill="White"
+                    fontWeight={500}
+                >
+                    sessions
+                </text>
                 <Tooltip
                     content={<CustomTooltip />}
                     cursor={<CustomCursor />}

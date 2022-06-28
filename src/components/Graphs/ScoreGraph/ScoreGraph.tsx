@@ -26,6 +26,15 @@ function ScoreGraph() {
                 startAngle={90}
                 endAngle={450}
             >
+                <text
+                    x="20%"
+                    y="22%"
+                    textAnchor="middle"
+                    fill="#20253A"
+                    fontWeight={500}
+                >
+                    Score
+                </text>
                 <PolarAngleAxis
                     type="number"
                     domain={[0, 1]}
@@ -53,9 +62,7 @@ function ScoreGraph() {
                     fill="#282D30"
                     fontSize="25"
                 >
-                    {/* Todo: fix type problem */}
-                    {/* {MOCKED_DATA[0].activityInfo.result *100}% */}
-                    {0.42 * 100}%
+                    {MOCKED_DATA[0].activityInfo.result[0].value * 100}%
                 </text>
                 <text x="50%" y="58%" textAnchor="middle" fill="#74798C">
                     de votre objectif
