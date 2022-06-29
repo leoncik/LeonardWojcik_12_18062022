@@ -3,6 +3,9 @@
     margin-right: 90px;
     width: 100%;
 }
+.loading-message {
+    font-size: 50px;
+}
 
 .stat {
     display: grid;
