@@ -2,11 +2,15 @@ import Profile from '../../pages/Profile';
 import SecondaryNavigation from '../SecondaryNavigation/SecondaryNavigation';
 import classes from './Layout.module.css';
 
-function Layout() {
+type LayoutProps = {
+    PageContent: React.ReactNode;
+};
+
+function Layout({ PageContent }: LayoutProps) {
     return (
         <div className={classes.layout}>
             <SecondaryNavigation />
-            <Profile />
+            {PageContent}
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
@@ -18,6 +19,7 @@ import classes from './Profile.module.css';
 
 function Profile() {
     // API call
+    const { id } = useParams();
     const [userData, setUserData] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
@@ -33,6 +35,7 @@ function Profile() {
                 const response = await fetch(url, { method, headers });
                 console.log('test');
                 const myUser = await response.json();
+                console.log(myUser);
                 console.log(myUser.data.userInfos.firstName);
                 setUserData(myUser.data.userInfos.firstName);
                 setIsLoading(false);
@@ -44,7 +47,7 @@ function Profile() {
             }
             console.log(userData);
         };
-        fetchData('http://localhost:3000/user/18');
+        fetchData(`http://localhost:3000/user/${id}`);
     }, []);
 
     return (

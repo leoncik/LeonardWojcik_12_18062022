@@ -1,5 +1,6 @@
-import classes from './PrimaryNavigation.module.css'
-import logo from '../../assets/logo.svg'
+import { NavLink } from 'react-router-dom';
+import classes from './PrimaryNavigation.module.css';
+import logo from '../../assets/logo.svg';
 
 function PrimaryNavigation() {
     return (
@@ -10,16 +11,14 @@ function PrimaryNavigation() {
                         <img src={logo} alt="logo" />
                         <p>SportSee</p>
                     </li>
-                    <li>Accueil</li>
+                    <NavLink to="/">Accueil</NavLink>
                     <li>Profil</li>
                     <li>Réglage</li>
                     <li>Communauté</li>
                 </ul>
             </nav>
-
         </header>
-
-    )
+    );
 }
 
-export default PrimaryNavigation
+export default PrimaryNavigation;
