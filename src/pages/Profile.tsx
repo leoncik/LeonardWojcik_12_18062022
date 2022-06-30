@@ -4,6 +4,11 @@ import { useParams } from 'react-router-dom';
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 
+// Factories
+import userInfoFactory from '../factories/userInfoFactory';
+import userActivityFactory from '../factories/userActivityFactory';
+import userAverageSessionsFactory from '../factories/userAverageSessionsFactory';
+
 // Graphs components
 import GraphContainer from '../components/Graphs/GraphContainer/GraphContainer';
 import SkillsGraph from '../components/Graphs/SkillsGraph/SkillsGraph';
@@ -18,11 +23,12 @@ import { MOCKED_DATA } from '../helpers/MOCKED_DATA';
 import classes from './Profile.module.css';
 
 function Profile() {
-    // API call
     const { id } = useParams();
     const [userData, setUserData] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
+
+    // API call (user info)
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async (
@@ -35,8 +41,9 @@ function Profile() {
                 const response = await fetch(url, { method, headers });
                 console.log('test');
                 const myUser = await response.json();
-                console.log(myUser);
-                console.log(myUser.data.userInfos.firstName);
+                // console.log(myUser);
+                // console.log(myUser.data.userInfos.firstName);
+                userInfoFactory(myUser);
                 setUserData(myUser.data.userInfos.firstName);
                 setIsLoading(false);
                 setError('');
@@ -48,6 +55,51 @@ function Profile() {
             console.log(userData);
         };
         fetchData(`http://localhost:3000/user/${id}`);
+    }, []);
+
+    // API call (user activity)
+    useEffect(() => {
+        setIsLoading(true);
+        const fetchData = async (
+            url: string,
+            err = 'Impossible de récupérée les données concernant votre activité.',
+            method = 'GET',
+            headers = {}
+        ) => {
+            try {
+                const response = await fetch(url, { method, headers });
+                const activityData = await response.json();
+                userActivityFactory(activityData);
+                // Format date
+                userActivityFactory(activityData).getSession(
+                    activityData.data.sessions
+                );
+            } catch (error) {
+                console.log(error, err);
+            }
+            console.log(userData);
+        };
+        fetchData(`http://localhost:3000/user/${id}/activity`);
+    }, []);
+
+    // API call (user average session)
+    useEffect(() => {
+        setIsLoading(true);
+        const fetchData = async (
+            url: string,
+            err = 'Impossible de récupérée les données concernant la durée des sessions.',
+            method = 'GET',
+            headers = {}
+        ) => {
+            try {
+                const response = await fetch(url, { method, headers });
+                const activityData = await response.json();
+                userAverageSessionsFactory(activityData);
+            } catch (error) {
+                console.log(error, err);
+            }
+        };
+        fetchData(`http://localhost:3000/user/${id}/average-sessions`);
     }, []);
 
     return (
