@@ -1,13 +1,15 @@
+// React hooks
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
-import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 
 // Factories
 import userInfoFactory from '../factories/userInfoFactory';
 import userActivityFactory from '../factories/userActivityFactory';
 import userAverageSessionsFactory from '../factories/userAverageSessionsFactory';
+
+// Page components
+import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
+import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 
 // Graphs components
 import GraphContainer from '../components/Graphs/GraphContainer/GraphContainer';
@@ -15,9 +17,6 @@ import SkillsGraph from '../components/Graphs/SkillsGraph/SkillsGraph';
 import ScoreGraph from '../components/Graphs/ScoreGraph/ScoreGraph';
 import SessionLengthGraph from '../components/Graphs/SessionLengthGraph/SessionLengthGraph';
 import ActivityGraph from '../components/Graphs/ActivityGraph/ActivityGraph';
-
-// Mocked data
-import { MOCKED_DATA } from '../helpers/MOCKED_DATA';
 
 // CSS
 import classes from './Profile.module.css';
@@ -83,6 +82,7 @@ function Profile() {
     }, []);
 
     // API call (user average session)
+    const [sessionLength, setSessionLength] = useState<unknown | null>([]);
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async (
@@ -94,7 +94,14 @@ function Profile() {
             try {
                 const response = await fetch(url, { method, headers });
                 const activityData = await response.json();
-                userAverageSessionsFactory(activityData);
+                userAverageSessionsFactory(activityData).formatSessionDays(
+                    activityData.data.sessions
+                );
+                setSessionLength(
+                    userAverageSessionsFactory(activityData).formatSessionDays(
+                        activityData.data.sessions
+                    )
+                );
             } catch (error) {
                 console.log(error, err);
             }
@@ -117,7 +124,9 @@ function Profile() {
                             cssClasses={'activity-graph'}
                         />
                         <GraphContainer
-                            GraphElement={<SessionLengthGraph />}
+                            GraphElement={
+                                <SessionLengthGraph graphData={sessionLength} />
+                            }
                             cssClasses={'session-length-graph'}
                         />
                         <GraphContainer
