@@ -21,79 +21,67 @@ import ActivityGraph from '../components/Graphs/ActivityGraph/ActivityGraph';
 // CSS
 import classes from './Profile.module.css';
 
+// Helpers
+import { genericFetch } from '../helpers/genericFetch';
+import * as endpoint from '../helpers/apiEndpoints';
+
 function Profile() {
     const { id } = useParams();
     const [userData, setUserData] = useState('');
+    const [sessionLength, setSessionLength] = useState<unknown | null>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
 
     // API call (user info)
     useEffect(() => {
         setIsLoading(true);
-        const fetchData = async (
-            url: string,
-            err = 'ERREUR : impossible de récupérer les données de votre profil. Veuillez réessayer plus tard.',
-            method = 'GET',
-            headers = {}
-        ) => {
+        const fetchData = async (path: string, errorMessage: string) => {
             try {
-                const response = await fetch(url, { method, headers });
-                console.log('test');
-                const myUser = await response.json();
-                // console.log(myUser);
-                // console.log(myUser.data.userInfos.firstName);
-                userInfoFactory(myUser);
-                setUserData(myUser.data.userInfos.firstName);
+                const user: any = await genericFetch(path);
+                userInfoFactory(user);
+                setUserData(user.data.userInfos.firstName);
                 setIsLoading(false);
                 setError('');
             } catch (error) {
-                console.log(error, err);
+                console.log(error, errorMessage);
                 setIsLoading(false);
-                setError(err);
+                setError(errorMessage);
             }
-            console.log(userData);
         };
-        fetchData(`http://localhost:3000/user/${id}`);
+        fetchData(
+            endpoint.userEndpoint(id),
+            'IMPOSSIBLE DE RÉCUPÉRER VOS DONNÉES DE PROFIL'
+        );
     }, []);
 
     // API call (user activity)
     useEffect(() => {
         setIsLoading(true);
-        const fetchData = async (
-            url: string,
-            err = 'Impossible de récupérée les données concernant votre activité.',
-            method = 'GET',
-            headers = {}
-        ) => {
+        const fetchData = async (path: string, errorMessage: string) => {
             try {
-                const response = await fetch(url, { method, headers });
-                const activityData = await response.json();
+                const activityData: any = await genericFetch(path);
                 userActivityFactory(activityData);
                 // Format date
                 userActivityFactory(activityData).getSession(
                     activityData.data.sessions
                 );
             } catch (error) {
-                console.log(error, err);
+                console.log(error, errorMessage);
+                setError(errorMessage);
             }
-            console.log(userData);
         };
-        fetchData(`http://localhost:3000/user/${id}/activity`);
+        fetchData(
+            endpoint.activityEndpoint(id),
+            "IMPOSSIBLE DE RÉCUPÉRER VOS DONNÉES D'ACTIVITÉ"
+        );
     }, []);
 
     // API call (user average session)
-    const [sessionLength, setSessionLength] = useState<unknown | null>([]);
     useEffect(() => {
         setIsLoading(true);
-        const fetchData = async (
-            url: string,
-            err = 'Impossible de récupérée les données concernant la durée des sessions.',
-            method = 'GET',
-            headers = {}
-        ) => {
+        const fetchData = async (path: string, errorMessage: string) => {
             try {
-                const response = await fetch(url, { method, headers });
-                const activityData = await response.json();
+                const activityData: any = await genericFetch(path);
                 userAverageSessionsFactory(activityData).formatSessionDays(
                     activityData.data.sessions
                 );
@@ -103,10 +91,14 @@ function Profile() {
                     )
                 );
             } catch (error) {
-                console.log(error, err);
+                console.log(error, errorMessage);
+                setError(errorMessage);
             }
         };
-        fetchData(`http://localhost:3000/user/${id}/average-sessions`);
+        fetchData(
+            endpoint.averageSessionEndpoint(id),
+            'IMPOSSIBLE DE RÉCUPÉRER LA DURÉE DES SESSIONS'
+        );
     }, []);
 
     return (
