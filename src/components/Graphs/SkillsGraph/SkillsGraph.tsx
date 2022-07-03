@@ -5,20 +5,19 @@ import {
     PolarAngleAxis,
     ResponsiveContainer,
 } from 'recharts';
-import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
-function SkillsGraph() {
+type SkillsGraphProps = {
+    graphData: unknown | any;
+};
+
+function SkillsGraph({ graphData }: SkillsGraphProps) {
     return (
         <ResponsiveContainer width="100%" height="100%">
-            <RadarChart
-                cx="50%"
-                cy="50%"
-                outerRadius="75%"
-                data={MOCKED_DATA[0].activityInfo.skills}
-            >
+            <RadarChart cx="50%" cy="50%" outerRadius="75%" data={graphData}>
                 <PolarGrid />
                 <PolarAngleAxis
-                    dataKey="type"
+                    dataKey="kind"
                     tick={{ fill: 'white', fontSize: '12', fontWeight: '500' }}
                 />
                 <Radar

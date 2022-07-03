@@ -1,37 +1,51 @@
 import classes from './NutritionInformationContainer.module.css';
 import NutritionInformationElement from '../NutritionInformationElement/NutritionInformationElement';
-import { MOCKED_DATA } from '../../helpers/MOCKED_DATA';
 
 import Energy from '../../assets/icons/tsx-format/Energy';
 import Protein from '../../assets/icons/tsx-format/Protein';
 import Carbohydrate from '../../assets/icons/tsx-format/Carbohydrate';
 import Lipid from '../../assets/icons/tsx-format/Lipid';
 
-function NutritionInformationContainer() {
+type NutritionInformationContainerProps = {
+    nutritionData: any;
+};
+
+// export interface NutritionInformationContainerProps {
+//     nutritionData: {
+//         calorieCount: number
+//         carbohydrateCount: number
+//         lipidCount: number
+//         proteinCount: number
+//     };
+// }
+
+function NutritionInformationContainer({
+    nutritionData,
+}: NutritionInformationContainerProps) {
     return (
         <div className={classes['nutritions-info-container']}>
             <NutritionInformationElement
-                type={MOCKED_DATA[0].nutritionInfo[0].type}
-                quantity={MOCKED_DATA[0].nutritionInfo[0].quantity}
-                unit={MOCKED_DATA[0].nutritionInfo[0].unit}
+                type={'Calories'}
+                quantity={nutritionData.calorieCount}
+                unit={'kCal'}
                 icon={<Energy fillColor="rgba(255,0,0, 1)" />}
             />
             <NutritionInformationElement
-                type={MOCKED_DATA[0].nutritionInfo[1].type}
-                quantity={MOCKED_DATA[0].nutritionInfo[1].quantity}
-                unit={MOCKED_DATA[0].nutritionInfo[1].unit}
+                type={'Protéines'}
+                quantity={nutritionData.proteinCount}
+                unit={'g'}
                 icon={<Protein fillColor="rgba(74, 184, 255, 1)" />}
             />
             <NutritionInformationElement
-                type={MOCKED_DATA[0].nutritionInfo[2].type}
-                quantity={MOCKED_DATA[0].nutritionInfo[2].quantity}
-                unit={MOCKED_DATA[0].nutritionInfo[2].unit}
+                type={'Glucides'}
+                quantity={nutritionData.carbohydrateCount}
+                unit={'g'}
                 icon={<Carbohydrate fillColor="rgba(253, 204, 12, 1)" />}
             />
             <NutritionInformationElement
-                type={MOCKED_DATA[0].nutritionInfo[3].type}
-                quantity={MOCKED_DATA[0].nutritionInfo[3].quantity}
-                unit={MOCKED_DATA[0].nutritionInfo[3].unit}
+                type={'Lipides'}
+                quantity={nutritionData.lipidCount}
+                unit={'g'}
                 icon={<Lipid fillColor="rgba(253, 81, 129, 1)" />}
             />
         </div>

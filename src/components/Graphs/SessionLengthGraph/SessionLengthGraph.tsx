@@ -3,6 +3,7 @@ import { CustomTooltip } from './CustomTooltip';
 import { CustomCursor } from './CustomCursor';
 
 // import {ISessions} from '../../../factories/userAverageSessionsFactory'
+// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 type SessionLengthGraphProps = {
     graphData: unknown | any;

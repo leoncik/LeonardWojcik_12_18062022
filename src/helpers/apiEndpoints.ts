@@ -33,7 +33,7 @@ const averageSessionEndpoint = (id: string | undefined): string =>
  * @param {number} id - id of the user
  * @returns {string} Returns the endpoint for the user performance.
  */
-const performanceEndpoint = (id: number): string =>
+const performanceEndpoint = (id: string | undefined): string =>
     `${apiBaseUrl}/user/${id}/performance`;
 
 export {

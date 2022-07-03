@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import userInfoFactory from '../factories/userInfoFactory';
 import userActivityFactory from '../factories/userActivityFactory';
 import userAverageSessionsFactory from '../factories/userAverageSessionsFactory';
+import userPerformanceFactory from '../factories/userPerformanceFactory';
 
 // Page components
 import NutritionInformationContainer from '../components/NutritionInformationContainer/NutritionInformation';
@@ -25,12 +26,25 @@ import classes from './Profile.module.css';
 import { genericFetch } from '../helpers/genericFetch';
 import * as endpoint from '../helpers/apiEndpoints';
 
+// Interfaces
+// import {NutritionInformationContainerProps} from '../components/NutritionInformationContainer/NutritionInformation'
+
 function Profile() {
     const { id } = useParams();
-    const [userData, setUserData] = useState('');
-    const [sessionLength, setSessionLength] = useState<unknown | null>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
+
+    // Todo : group userData, userKeyData, userScore and userScoreValue
+    const [userData, setUserData] = useState('');
+    const [userKeyData, setUserKeyData] = useState('');
+    const [userScore, setUserScore] = useState('');
+    const [userScoreValue, setUserScoreValue] = useState(0);
+
+    const [sessionLengthData, setSessionLengthData] = useState<unknown | null>(
+        []
+    );
+    const [activityData, setActivityData] = useState<unknown | null>([]);
+    const [performanceData, setPerformanceData] = useState<unknown | null>([]);
 
     // API call (user info)
     useEffect(() => {
@@ -40,6 +54,11 @@ function Profile() {
                 const user: any = await genericFetch(path);
                 userInfoFactory(user);
                 setUserData(user.data.userInfos.firstName);
+                setUserScore(userInfoFactory(user).getScore(user.data));
+                setUserScoreValue(
+                    userInfoFactory(user).getScore(user.data)[0].score
+                );
+                setUserKeyData(user.data.keyData);
                 setIsLoading(false);
                 setError('');
             } catch (error) {
@@ -62,9 +81,10 @@ function Profile() {
                 const activityData: any = await genericFetch(path);
                 userActivityFactory(activityData);
                 // Format date
-                userActivityFactory(activityData).getSession(
-                    activityData.data.sessions
-                );
+                // userActivityFactory(activityData).getSession(
+                //     activityData.data.sessions
+                // );
+                setActivityData(activityData.data.sessions);
             } catch (error) {
                 console.log(error, errorMessage);
                 setError(errorMessage);
@@ -85,7 +105,7 @@ function Profile() {
                 userAverageSessionsFactory(activityData).formatSessionDays(
                     activityData.data.sessions
                 );
-                setSessionLength(
+                setSessionLengthData(
                     userAverageSessionsFactory(activityData).formatSessionDays(
                         activityData.data.sessions
                     )
@@ -101,6 +121,24 @@ function Profile() {
         );
     }, []);
 
+    // API call (user performance)
+    useEffect(() => {
+        setIsLoading(true);
+        const fetchData = async (path: string, errorMessage: string) => {
+            try {
+                const performanceData: any = await genericFetch(path);
+                setPerformanceData(performanceData.data.data);
+            } catch (error) {
+                console.log(error, errorMessage);
+                setError(errorMessage);
+            }
+        };
+        fetchData(
+            endpoint.performanceEndpoint(id),
+            'IMPOSSIBLE DE RÉCUPÉRER LES PERFORMANCES'
+        );
+    }, []);
+
     return (
         <div className={classes['profile-content']}>
             {isLoading && (
@@ -112,24 +150,37 @@ function Profile() {
                     <WelcomingInfo firstName={userData} />
                     <div className={classes.stat}>
                         <GraphContainer
-                            GraphElement={<ActivityGraph />}
+                            GraphElement={
+                                <ActivityGraph graphData={activityData} />
+                            }
                             cssClasses={'activity-graph'}
                         />
                         <GraphContainer
                             GraphElement={
-                                <SessionLengthGraph graphData={sessionLength} />
+                                <SessionLengthGraph
+                                    graphData={sessionLengthData}
+                                />
                             }
                             cssClasses={'session-length-graph'}
                         />
                         <GraphContainer
-                            GraphElement={<SkillsGraph />}
+                            GraphElement={
+                                <SkillsGraph graphData={performanceData} />
+                            }
                             cssClasses={'skills-graph'}
                         />
                         <GraphContainer
-                            GraphElement={<ScoreGraph />}
+                            GraphElement={
+                                <ScoreGraph
+                                    graphData={userScore}
+                                    scoreValue={userScoreValue}
+                                />
+                            }
                             cssClasses={'score-graph'}
                         />
-                        <NutritionInformationContainer />
+                        <NutritionInformationContainer
+                            nutritionData={userKeyData}
+                        />
                     </div>
                 </>
             )}
