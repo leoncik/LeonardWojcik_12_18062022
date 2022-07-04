@@ -141,49 +141,39 @@ function Profile() {
 
     return (
         <div className={classes['profile-content']}>
-            {isLoading && (
-                <p className={classes['loading-message']}>Chargement…</p>
-            )}
             {error && <p> {error} </p>}
-            {userData && (
-                <>
-                    <WelcomingInfo firstName={userData} />
-                    <div className={classes.stat}>
-                        <GraphContainer
-                            GraphElement={
-                                <ActivityGraph graphData={activityData} />
-                            }
-                            cssClasses={'activity-graph'}
+            <WelcomingInfo firstName={userData} loading={isLoading} />
+            <div className={classes.stat}>
+                <GraphContainer
+                    GraphElement={
+                        <ActivityGraph
+                            graphData={activityData}
+                            loading={isLoading}
                         />
-                        <GraphContainer
-                            GraphElement={
-                                <SessionLengthGraph
-                                    graphData={sessionLengthData}
-                                />
-                            }
-                            cssClasses={'session-length-graph'}
+                    }
+                    cssClasses={'activity-graph'}
+                />
+                <GraphContainer
+                    GraphElement={
+                        <SessionLengthGraph graphData={sessionLengthData} />
+                    }
+                    cssClasses={'session-length-graph'}
+                />
+                <GraphContainer
+                    GraphElement={<SkillsGraph graphData={performanceData} />}
+                    cssClasses={'skills-graph'}
+                />
+                <GraphContainer
+                    GraphElement={
+                        <ScoreGraph
+                            graphData={userScore}
+                            scoreValue={userScoreValue}
                         />
-                        <GraphContainer
-                            GraphElement={
-                                <SkillsGraph graphData={performanceData} />
-                            }
-                            cssClasses={'skills-graph'}
-                        />
-                        <GraphContainer
-                            GraphElement={
-                                <ScoreGraph
-                                    graphData={userScore}
-                                    scoreValue={userScoreValue}
-                                />
-                            }
-                            cssClasses={'score-graph'}
-                        />
-                        <NutritionInformationContainer
-                            nutritionData={userKeyData}
-                        />
-                    </div>
-                </>
-            )}
+                    }
+                    cssClasses={'score-graph'}
+                />
+                <NutritionInformationContainer nutritionData={userKeyData} />
+            </div>
         </div>
     );
 }

@@ -1,19 +1,23 @@
 interface IUserInfo {
     data: {
         id: number;
-        keyData: {
-            calorieCount: number;
-            carbohydrateCount: number;
-            lipidCount: number;
-            proteinCount: number;
-        };
+        keyData: IKeyData;
         score: number;
-        userInfos: {
-            age: number;
-            firstName: string;
-            lastName: string;
-        };
+        userInfos: IUserInfos;
     };
+}
+
+export interface IKeyData {
+    calorieCount: number;
+    carbohydrateCount: number;
+    lipidCount: number;
+    proteinCount: number;
+}
+
+export interface IUserInfos {
+    age: number;
+    firstName: string;
+    lastName: string;
 }
 
 const userInfoFactory = (userData: IUserInfo) => {

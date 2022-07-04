@@ -1,18 +1,11 @@
+import { IKeyData, IUserInfos } from '../factories/userInfoFactory';
+
 interface IUserPerformance {
     data: {
         id: number;
-        keyData: {
-            calorieCount: number;
-            carbohydrateCount: number;
-            lipidCount: number;
-            proteinCount: number;
-        };
+        keyData: IKeyData;
         score: number;
-        userInfos: {
-            age: number;
-            firstName: string;
-            lastName: string;
-        };
+        userInfos: IUserInfos;
     };
 }
 
