@@ -37,7 +37,7 @@ function Profile() {
     // Todo : group userData, userKeyData, userScore and userScoreValue
     const [userData, setUserData] = useState('');
     const [userKeyData, setUserKeyData] = useState('');
-    const [userScore, setUserScore] = useState('');
+    const [userScore, setUserScore] = useState<unknown | null>('');
     const [userScoreValue, setUserScoreValue] = useState(0);
 
     const [sessionLengthData, setSessionLengthData] = useState<unknown | null>(
@@ -52,7 +52,6 @@ function Profile() {
         const fetchData = async (path: string, errorMessage: string) => {
             try {
                 const user: any = await genericFetch(path);
-                userInfoFactory(user);
                 setUserData(user.data.userInfos.firstName);
                 setUserScore(userInfoFactory(user).getScore(user.data));
                 setUserScoreValue(
@@ -79,11 +78,10 @@ function Profile() {
         const fetchData = async (path: string, errorMessage: string) => {
             try {
                 const activityData: any = await genericFetch(path);
-                userActivityFactory(activityData);
                 // Format date
-                // userActivityFactory(activityData).getSession(
-                //     activityData.data.sessions
-                // );
+                userActivityFactory(activityData).getSession(
+                    activityData.data.sessions
+                );
                 setActivityData(activityData.data.sessions);
             } catch (error) {
                 console.log(error, errorMessage);
@@ -102,9 +100,6 @@ function Profile() {
         const fetchData = async (path: string, errorMessage: string) => {
             try {
                 const activityData: any = await genericFetch(path);
-                userAverageSessionsFactory(activityData).formatSessionDays(
-                    activityData.data.sessions
-                );
                 setSessionLengthData(
                     userAverageSessionsFactory(activityData).formatSessionDays(
                         activityData.data.sessions
@@ -127,6 +122,12 @@ function Profile() {
         const fetchData = async (path: string, errorMessage: string) => {
             try {
                 const performanceData: any = await genericFetch(path);
+                userPerformanceFactory(performanceData).translateSkills(
+                    performanceData.data.kind
+                );
+                userPerformanceFactory(performanceData).formatData(
+                    performanceData.data
+                );
                 setPerformanceData(performanceData.data.data);
             } catch (error) {
                 console.log(error, errorMessage);

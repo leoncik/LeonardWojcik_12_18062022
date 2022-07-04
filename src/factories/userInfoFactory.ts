@@ -1,10 +1,13 @@
 interface IUserInfo {
-    data: {
-        id: number;
-        keyData: IKeyData;
-        score: number;
-        userInfos: IUserInfos;
-    };
+    data: IUserInfoData;
+}
+
+interface IUserInfoData {
+    id: number;
+    keyData: IKeyData;
+    score: number;
+    todayScore: number;
+    userInfos: IUserInfos;
 }
 
 export interface IKeyData {
@@ -21,9 +24,7 @@ export interface IUserInfos {
 }
 
 const userInfoFactory = (userData: IUserInfo) => {
-    const { data } = userData;
-    // console.log(data.id);
-    const getScore = (user: any): any => {
+    const getScore = (user: IUserInfoData): Array<{ score: number }> => {
         // ! There are two different key for user score.
         const score = [
             {

@@ -10,9 +10,6 @@ export interface ISessions {
 }
 
 const userAverageSessionsFactory = (userData: IUserAverageSessions) => {
-    const { data } = userData;
-    // console.log(data.sessions);
-
     // Format sessions dates
     const formatSessionDays = (sessions: Array<ISessions>) => {
         const daysLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -20,10 +17,6 @@ const userAverageSessionsFactory = (userData: IUserAverageSessions) => {
             (session: ISessions, index) => (session.day = daysLetters[index])
         );
         return sessions;
-
-        // ! This is returning the array of days only
-        // const formattedAverageSession = sessions.map((session: ISessions, index) => (session.day = daysLetters[index]))
-        // return formattedAverageSession
     };
 
     return {
