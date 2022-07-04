@@ -9,11 +9,18 @@ import {
 } from 'recharts';
 import { CustomTooltip } from './CustomTooltip';
 
-import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 import classes from './ActivityGraph.module.css';
 
-function ActivityGraph() {
-    return (
+type ActivityGraphProps = {
+    graphData: unknown | any;
+    loading: boolean;
+};
+
+function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
+    return loading ? (
+        <div className={classes['loading-container']}></div>
+    ) : (
         <div style={{ width: '100%', height: '100%' }}>
             {/* HEADER OF THE GRAPH */}
             <header className={classes['graph-header']}>
@@ -34,7 +41,7 @@ function ActivityGraph() {
 
             {/* GRAPH */}
             <ResponsiveContainer width="100%" height="80%">
-                <BarChart data={MOCKED_DATA[0].activityInfo.dailyActivity}>
+                <BarChart data={graphData}>
                     <CartesianGrid strokeDasharray="4" vertical={false} />
                     <Tooltip
                         content={<CustomTooltip />}
@@ -45,7 +52,7 @@ function ActivityGraph() {
                     <Bar
                         name="Poids (kg)"
                         type="monotone"
-                        dataKey="weight"
+                        dataKey="kilogram"
                         fill="#282D30"
                         barSize={12}
                         radius={[5, 5, 0, 0]}

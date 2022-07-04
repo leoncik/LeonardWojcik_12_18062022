@@ -2,10 +2,13 @@ import classes from './WelcomingInfo.module.css';
 
 type WelcomingInfoProps = {
     firstName: string;
+    loading: boolean;
 };
 
-function WelcomingInfo({ firstName }: WelcomingInfoProps) {
-    return (
+function WelcomingInfo({ firstName, loading }: WelcomingInfoProps) {
+    return loading ? (
+        <p>Chargement…</p>
+    ) : (
         <div className="welcoming-info">
             <h1>
                 Bonjour{' '}
