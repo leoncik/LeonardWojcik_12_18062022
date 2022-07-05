@@ -75,3 +75,12 @@
         transform: rotate(360deg);
     }
 }
+
+@media all and (max-width: 750px) {
+    .graph-header {
+        font-size: 10px;
+    }
+    .graph-legend ul {
+        gap: 30px;
+    }
+}

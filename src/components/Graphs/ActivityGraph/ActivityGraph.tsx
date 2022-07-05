@@ -1,3 +1,7 @@
+// React hooks
+import { useState, useEffect } from 'react';
+
+// Recharts
 import {
     BarChart,
     Bar,
@@ -18,6 +22,16 @@ type ActivityGraphProps = {
 };
 
 function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
+    // Watch page width.
+    // If the page width is lower than 750px, set barChart to vertical.
+    const minPageWidth = 750;
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        window.addEventListener('resize', () =>
+            setWindowWidth(window.innerWidth)
+        );
+    }, []);
+
     return loading ? (
         <div className={classes['loading-container']}></div>
     ) : (
@@ -41,11 +55,23 @@ function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
 
             {/* GRAPH */}
             <ResponsiveContainer width="99%" height="80%">
-                <BarChart data={graphData}>
-                    <CartesianGrid strokeDasharray="4" vertical={false} />
+                <BarChart
+                    data={graphData}
+                    layout={
+                        windowWidth > minPageWidth ? 'horizontal' : 'vertical'
+                    }
+                >
+                    <CartesianGrid
+                        strokeDasharray="4"
+                        vertical={windowWidth > minPageWidth ? false : true}
+                    />
                     <Tooltip
                         content={<CustomTooltip />}
-                        position={{ y: -15 }}
+                        position={
+                            windowWidth > minPageWidth
+                                ? { y: -15 }
+                                : { x: windowWidth / 1.6, y: -15 }
+                        }
                         offset={65}
                         cursor={{ fill: 'rgba(196, 196, 196, 0.5)' }}
                     />
@@ -55,7 +81,11 @@ function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
                         dataKey="kilogram"
                         fill="#282D30"
                         barSize={12}
-                        radius={[5, 5, 0, 0]}
+                        radius={
+                            windowWidth > minPageWidth
+                                ? [5, 5, 0, 0]
+                                : [0, 5, 5, 0]
+                        }
                     />
                     <Bar
                         name="Calories brûlées (kCal)"
@@ -63,14 +93,30 @@ function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
                         dataKey="calories"
                         fill="#E60000"
                         barSize={12}
-                        radius={[5, 5, 0, 0]}
+                        radius={
+                            windowWidth > minPageWidth
+                                ? [5, 5, 0, 0]
+                                : [0, 5, 5, 0]
+                        }
                     />
                     <YAxis
-                        orientation="right"
+                        orientation={
+                            windowWidth > minPageWidth ? 'right' : 'left'
+                        }
                         tickLine={false}
                         axisLine={false}
+                        dataKey={windowWidth > minPageWidth ? undefined : 'day'}
+                        type={
+                            windowWidth > minPageWidth ? 'number' : 'category'
+                        }
                     />
-                    <XAxis dataKey="day" tickLine={false} />
+                    <XAxis
+                        dataKey={windowWidth > minPageWidth ? 'day' : undefined}
+                        tickLine={false}
+                        type={
+                            windowWidth > minPageWidth ? 'category' : 'number'
+                        }
+                    />
                 </BarChart>
             </ResponsiveContainer>
         </div>

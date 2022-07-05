@@ -55,3 +55,9 @@
         height: 200px;
     }
 }
+
+@media all and (max-width: 750px) {
+    .activity-graph {
+        height: 100%;
+    }
+}
