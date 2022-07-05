@@ -21,13 +21,13 @@ import { Rectangle } from 'recharts';
 // };
 
 // ! New version. Needs props type fix.
-type CustomCursorProps = {
-    points: Array<{ x: number; y: number }>;
-    width: number;
-    height: number;
-};
+// type CustomCursorProps = {
+//     points: Array<{ x: number; y: number }>;
+//     width: number;
+//     height: number;
+// };
 
-export const CustomCursor = (props: CustomCursorProps) => {
+export const CustomCursor = (props: any) => {
     const { points, width, height } = props;
     const { x, y } = points[0];
     return (

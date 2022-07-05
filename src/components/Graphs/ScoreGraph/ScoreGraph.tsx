@@ -18,7 +18,7 @@ function ScoreGraph({ graphData, scoreValue }: ScoreGraphProps) {
     const circleSize = 300;
 
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="99%" height="100%">
             <RadialBarChart
                 width={circleSize}
                 height={circleSize}

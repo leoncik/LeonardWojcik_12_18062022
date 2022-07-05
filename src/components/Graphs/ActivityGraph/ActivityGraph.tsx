@@ -40,7 +40,7 @@ function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
             </header>
 
             {/* GRAPH */}
-            <ResponsiveContainer width="100%" height="80%">
+            <ResponsiveContainer width="99%" height="80%">
                 <BarChart data={graphData}>
                     <CartesianGrid strokeDasharray="4" vertical={false} />
                     <Tooltip

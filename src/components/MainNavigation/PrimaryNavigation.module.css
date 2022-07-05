@@ -17,3 +17,13 @@
     color: red;
     margin: 0;
 }
+
+/* Rules for mobile */
+@media all and (max-width: 700px) {
+    .main-nav {
+        font-size: 10px;
+    }
+    .main-nav ul {
+        gap: 15px;
+    }
+}

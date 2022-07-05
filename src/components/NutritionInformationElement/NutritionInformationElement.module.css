@@ -33,3 +33,25 @@
         padding: 16px 25.5px 16px 16px;
     }
 }
+
+/* Smaller screens */
+@media all and (max-width: 900px) {
+    .nutrition-item {
+        width: 200px;
+        padding: 8px 12.75px 16px 16px;
+        gap: 12px;
+    }
+
+    .nutrition-item__icon {
+        width: 30px;
+        height: 30px;
+        padding: 10.5px;
+    }
+}
+
+/* Mobile */
+@media all and (max-width: 700px) {
+    .nutrition-item {
+        width: 150px;
+    }
+}

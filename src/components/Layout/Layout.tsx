@@ -1,4 +1,3 @@
-import Profile from '../../pages/Profile';
 import SecondaryNavigation from '../SecondaryNavigation/SecondaryNavigation';
 import classes from './Layout.module.css';
 

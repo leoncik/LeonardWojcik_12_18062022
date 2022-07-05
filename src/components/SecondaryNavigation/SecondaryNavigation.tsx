@@ -1,4 +1,7 @@
+// CSS
 import classes from './SecondaryNavigation.module.css';
+
+// Icons
 import meditation from '../../assets/icons/svg-format/meditation.svg';
 import swimming from '../../assets/icons/svg-format/swimming.svg';
 import cycling from '../../assets/icons/svg-format/cycling.svg';
