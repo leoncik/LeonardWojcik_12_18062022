@@ -1,7 +1,14 @@
+/** 
+* * Note : I used padding-bottom to manage the size of the graphs in order to deal with an issue with the resizing performances of the graph.
+* * Read more on this issue : https://github.com/recharts/recharts/issues/1767 
+* * and this one : https://github.com/recharts/recharts/issues/172  
+*/
+
 .activity-graph {
     grid-area: ActivityGraph;
     width: auto;
     height: 320px;
+    padding-bottom: 320px;
 
     background-color: #fbfbfb;
     border-radius: 5px;
@@ -10,7 +17,9 @@
 .session-length-graph {
     width: 258px;
     height: 263px;
+    padding-bottom: 263px;
     grid-area: SessionLengthGraph;
+    align-self: end;
 
     background-color: #ff0000;
     border-radius: 5px;
@@ -19,7 +28,9 @@
 .skills-graph {
     width: 258px;
     height: 263px;
+    padding-bottom: 263px;
     grid-area: SkillsGraph;
+    align-self: end;
 
     background-color: #282d30;
     border-radius: 5px;
@@ -28,7 +39,9 @@
 .score-graph {
     width: 258px;
     height: 263px;
+    padding-bottom: 263px;
     grid-area: ScoreGraph;
+    align-self: end;
 
     background-color: #fbfbfb;
     border-radius: 5px;
@@ -41,7 +54,7 @@
     .session-length-graph,
     .skills-graph,
     .score-graph {
-        width: auto;
+        padding-left: 100%;
         height: auto;
     }
 }
@@ -53,11 +66,13 @@
     .score-graph {
         width: 100%;
         height: 200px;
+        padding-bottom: 200px;
     }
 }
 
 @media all and (max-width: 750px) {
     .activity-graph {
         height: 100%;
+        padding-bottom: 100%;
     }
 }
