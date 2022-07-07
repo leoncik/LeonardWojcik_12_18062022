@@ -26,17 +26,17 @@ function ScoreGraph({ graphData, scoreValue }: ScoreGraphProps) {
                 // cy={circleSize / 2}
                 innerRadius={80}
                 outerRadius={100}
-                barSize={25}
+                barSize={10}
                 data={graphData}
                 startAngle={90}
                 endAngle={450}
             >
                 <text
-                    x="20%"
-                    y="22%"
+                    x="18%"
+                    y="15%"
                     textAnchor="middle"
                     fill="#20253A"
-                    fontWeight={500}
+                    fontWeight={800}
                 >
                     Score
                 </text>
@@ -57,7 +57,7 @@ function ScoreGraph({ graphData, scoreValue }: ScoreGraphProps) {
                     textAnchor="middle"
                     cx="50%"
                     cy="50%"
-                    r="70"
+                    r="75"
                     style={{ fill: 'white' }}
                 ></circle>
                 <text
@@ -66,6 +66,7 @@ function ScoreGraph({ graphData, scoreValue }: ScoreGraphProps) {
                     textAnchor="middle"
                     fill="#282D30"
                     fontSize="25"
+                    fontWeight={800}
                 >
                     {scoreValue * 100}%
                 </text>

@@ -34,9 +34,9 @@ export const CustomCursor = (props: any) => {
         <Rectangle
             fill="rgba(0, 0, 0, 0.1)"
             x={x}
-            y={y - 20}
+            y={y - 60}
             width={width + 60}
-            height={height + 60}
+            height={height + 100}
         />
     );
 };

@@ -14,7 +14,7 @@ function SessionLengthGraph({ graphData }: SessionLengthGraphProps) {
         <ResponsiveContainer width="99%" height="100%">
             <LineChart
                 data={graphData}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                margin={{ top: 55, right: 30, left: 20, bottom: 5 }}
             >
                 <text
                     x="8%"
