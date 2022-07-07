@@ -8,6 +8,10 @@
     margin-bottom: 0;
 }
 
+.main-nav a {
+    color: white;
+}
+
 .header-logo {
     display: flex;
     align-items: center;

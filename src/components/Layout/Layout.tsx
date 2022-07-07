@@ -9,7 +9,7 @@ function Layout({ PageContent }: LayoutProps) {
     return (
         <div className={classes.layout}>
             <SecondaryNavigation />
-            {PageContent}
+            <div className={classes['page-content']}>{PageContent}</div>
         </div>
     );
 }

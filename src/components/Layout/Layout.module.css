@@ -1,3 +1,27 @@
 .layout {
     display: flex;
 }
+
+.page-content {
+    margin-left: 200px;
+    margin-right: 90px;
+    width: 100%;
+}
+
+/* Support for 1024x780 screens */
+@media all and (max-width: 1024px) {
+    .page-content {
+        margin-left: 150px;
+        margin-right: 22.5px;
+        width: 100%;
+    }
+}
+
+/* Rules for mobile */
+@media all and (max-width: 700px) {
+    .page-content {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 60px;
+    }
+}

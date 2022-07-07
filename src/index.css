@@ -3,8 +3,6 @@
     src: url('./assets/fonts/roboto_regular_macroman/Roboto-Regular-webfont.eot');
     src: url('./assets/fonts/roboto_regular_macroman/Roboto-Regular-webfont.eot?#iefix')
             format('embedded-opentype'),
-        url('./assets/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff2')
-            format('woff2'),
         url('./assets/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff')
             format('woff'),
         url('./assets/fonts/roboto_regular_macroman/Roboto-Regular-webfont.ttf')
@@ -28,4 +26,8 @@ body {
     font-family: 'Roboto', 'RobotoRegular', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
 }
