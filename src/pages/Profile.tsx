@@ -38,7 +38,7 @@ function Profile() {
 
     // Todo : group userData, userKeyData, userScore and userScoreValue
     const [userData, setUserData] = useState('');
-    const [userKeyData, setUserKeyData] = useState('');
+    const [userKeyData, setUserKeyData] = useState<unknown | null>('');
     const [userScore, setUserScore] = useState<unknown | null>('');
     const [userScoreValue, setUserScoreValue] = useState(0);
 
@@ -59,7 +59,10 @@ function Profile() {
                 setUserScoreValue(
                     userInfoFactory(user).getScore(user.data)[0].score
                 );
-                setUserKeyData(user.data.keyData);
+                // userInfoFactory(user).formatCalories(user.data.keyData.calorieCount)
+                setUserKeyData(
+                    userInfoFactory(user).formatCalories(user.data.keyData)
+                );
                 setIsLoading(false);
                 setError('');
             } catch (error) {

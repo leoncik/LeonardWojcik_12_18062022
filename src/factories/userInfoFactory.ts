@@ -11,7 +11,7 @@ interface IUserInfoData {
 }
 
 export interface IKeyData {
-    calorieCount: number;
+    calorieCount: number | string;
     carbohydrateCount: number;
     lipidCount: number;
     proteinCount: number;
@@ -34,8 +34,14 @@ const userInfoFactory = (userData: IUserInfo) => {
         return score;
     };
 
+    const formatCalories = (user: IKeyData) => {
+        user.calorieCount = user.calorieCount.toLocaleString('en-US');
+        return user;
+    };
+
     return {
         getScore,
+        formatCalories,
     };
 };
 
