@@ -25,6 +25,8 @@ import classes from './Profile.module.css';
 // Helpers
 import { genericFetch } from '../helpers/genericFetch';
 import * as endpoint from '../helpers/apiEndpoints';
+import useFetch from '../helpers/useFetch';
+import handleFetch from '../helpers/handleFetch';
 
 // Interfaces
 // import {NutritionInformationContainerProps} from '../components/NutritionInformationContainer/NutritionInformation'
@@ -73,16 +75,13 @@ function Profile() {
     }, []);
 
     // API call (user activity)
+    // ! New version (working)
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             try {
-                const activityData: any = await genericFetch(path);
-                // Format date
-                userActivityFactory(activityData).getSession(
-                    activityData.data.sessions
-                );
-                setActivityData(activityData.data.sessions);
+                const retrievedData = await handleFetch(path, errorMessage, id);
+                setActivityData(retrievedData.data.sessions);
             } catch (error) {
                 console.log(error, errorMessage);
                 setError(errorMessage);
@@ -93,42 +92,74 @@ function Profile() {
             "IMPOSSIBLE DE RÉCUPÉRER VOS DONNÉES D'ACTIVITÉ"
         );
     }, []);
+    // ! Old version (working)
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     const fetchData = async (path: string, errorMessage: string) => {
+    //         try {
+    //             const activityData: any = await genericFetch(path);
+    //             // Format date
+    //             userActivityFactory(activityData).getSession(
+    //                 activityData.data.sessions
+    //             );
+    //             setActivityData(activityData.data.sessions);
+    //         } catch (error) {
+    //             console.log(error, errorMessage);
+    //             setError(errorMessage);
+    //         }
+    //     };
+    //     fetchData(
+    //         endpoint.activityEndpoint(id),
+    //         "IMPOSSIBLE DE RÉCUPÉRER VOS DONNÉES D'ACTIVITÉ"
+    //     );
+    // }, []);
 
     // API call (user average session)
+    // ! New version 1 (test. Not working)
+    // const retrievedData = useFetch(endpoint.averageSessionEndpoint(id))
+    // console.log(retrievedData);
+    // ! New version 2 (test. Working)
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            try {
-                const activityData: any = await genericFetch(path);
-                setSessionLengthData(
-                    userAverageSessionsFactory(activityData).formatSessionDays(
-                        activityData.data.sessions
-                    )
-                );
-            } catch (error) {
-                console.log(error, errorMessage);
-                setError(errorMessage);
-            }
+            const retrievedData = await handleFetch(path, errorMessage, id);
+            setSessionLengthData(retrievedData);
         };
         fetchData(
             endpoint.averageSessionEndpoint(id),
             'IMPOSSIBLE DE RÉCUPÉRER LA DURÉE DES SESSIONS'
         );
     }, []);
+    // ! Old version (Working)
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     const fetchData = async (path: string, errorMessage: string) => {
+    //         try {
+    //             const activityData: any = await genericFetch(path);
+    //             setSessionLengthData(
+    //                 userAverageSessionsFactory(activityData).formatSessionDays(
+    //                     activityData.data.sessions
+    //                 )
+    //             );
+    //         } catch (error) {
+    //             console.log(error, errorMessage);
+    //             setError(errorMessage);
+    //         }
+    //     };
+    //     fetchData(
+    //         endpoint.averageSessionEndpoint(id),
+    //         'IMPOSSIBLE DE RÉCUPÉRER LA DURÉE DES SESSIONS'
+    //     );
+    // }, []);
 
     // API call (user performance)
+    // ! New version (working)
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             try {
-                const performanceData: any = await genericFetch(path);
-                userPerformanceFactory(performanceData).translateSkills(
-                    performanceData.data.kind
-                );
-                userPerformanceFactory(performanceData).formatData(
-                    performanceData.data
-                );
-                setPerformanceData(performanceData.data.data);
+                const retrievedData = await handleFetch(path, errorMessage, id);
+                setPerformanceData(retrievedData.data.data);
             } catch (error) {
                 console.log(error, errorMessage);
                 setError(errorMessage);
@@ -139,6 +170,29 @@ function Profile() {
             'IMPOSSIBLE DE RÉCUPÉRER LES PERFORMANCES'
         );
     }, []);
+    // ! Old version (Working)
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     const fetchData = async (path: string, errorMessage: string) => {
+    //         try {
+    //             const performanceData: any = await genericFetch(path);
+    //             userPerformanceFactory(performanceData).translateSkills(
+    //                 performanceData.data.kind
+    //             );
+    //             userPerformanceFactory(performanceData).formatData(
+    //                 performanceData.data
+    //             );
+    //             setPerformanceData(performanceData.data.data);
+    //         } catch (error) {
+    //             console.log(error, errorMessage);
+    //             setError(errorMessage);
+    //         }
+    //     };
+    //     fetchData(
+    //         endpoint.performanceEndpoint(id),
+    //         'IMPOSSIBLE DE RÉCUPÉRER LES PERFORMANCES'
+    //     );
+    // }, []);
 
     return (
         <div className={classes['profile-content']}>
