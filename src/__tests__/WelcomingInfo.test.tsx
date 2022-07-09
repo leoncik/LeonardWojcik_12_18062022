@@ -3,11 +3,12 @@ import { describe, it, expect } from 'vitest';
 import WelcomingInfo from '../components/WelcomingInfo/WelcomingInfo';
 
 const mockedName = 'Rocky';
+const expectedOutput = 'Bonjour <span class="_user-name_c5t9o_1">Rocky</span>';
 
 describe('Testing user name display', () => {
-    it('should split the first name of the user', () => {
+    it("should display a greeting message with the user's firstname", () => {
         render(<WelcomingInfo firstName={mockedName} loading={false} />);
-        const welcomingText = screen.getByTestId('welcoming-info-name');
-        expect(welcomingText.innerText).toBe('Bonjour Rocky');
+        const welcomingText = screen.getByTestId('greeting');
+        expect(welcomingText.innerHTML).toBe(expectedOutput);
     });
 });

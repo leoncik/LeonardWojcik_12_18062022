@@ -10,7 +10,7 @@ function WelcomingInfo({ firstName, loading }: WelcomingInfoProps) {
         <p>Chargement…</p>
     ) : (
         <div className="welcoming-info">
-            <h1>
+            <h1 data-testid="greeting">
                 Bonjour{' '}
                 <span className={classes['user-name']}>{firstName}</span>
             </h1>
