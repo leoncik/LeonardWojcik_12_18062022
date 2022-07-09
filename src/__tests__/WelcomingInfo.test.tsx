@@ -6,7 +6,7 @@ const mockedName = 'Rocky';
 
 describe('Testing user name display', () => {
     it('should split the first name of the user', () => {
-        // render(<WelcomingInfo firstName={mockedName} loading={false} />); // ! Error
+        render(<WelcomingInfo firstName={mockedName} loading={false} />);
         const welcomingText = screen.getByTestId('welcoming-info-name');
         expect(welcomingText.innerText).toBe('Bonjour Rocky');
     });

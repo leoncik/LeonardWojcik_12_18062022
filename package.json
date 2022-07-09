@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/recharts": "^1.8.23",
@@ -16,7 +17,7 @@
     "recharts": "^2.1.10"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^12.1.4",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
