@@ -57,7 +57,7 @@ function Profile() {
         setIsUserInfoLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const { fetchedData, scoreData, nutritionData, scoreValue } =
-                await handleFetch(path, errorMessage, id);
+                await handleFetch(path, id);
             if (fetchedData) {
                 setUserData(fetchedData.data.userInfos.firstName);
                 setUserScore(scoreData);
@@ -79,7 +79,7 @@ function Profile() {
     useEffect(() => {
         setIsActivityLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, errorMessage, id);
+            const retrievedData = await handleFetch(path, id);
             retrievedData
                 ? setActivityData(retrievedData.data.sessions)
                 : setActivityError(errorMessage);
@@ -95,7 +95,7 @@ function Profile() {
     useEffect(() => {
         setIsSessionLengthLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, errorMessage, id);
+            const retrievedData = await handleFetch(path, id);
             retrievedData
                 ? setSessionLengthData(retrievedData)
                 : setSessionLengthError(errorMessage);
@@ -111,7 +111,7 @@ function Profile() {
     useEffect(() => {
         setIsPerformanceLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, errorMessage, id);
+            const retrievedData = await handleFetch(path, id);
             retrievedData
                 ? setPerformanceData(retrievedData.data.data)
                 : setPerformanceError(errorMessage);
