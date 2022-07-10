@@ -5,9 +5,12 @@ import Energy from '../../assets/icons/tsx-format/Energy';
 import Protein from '../../assets/icons/tsx-format/Protein';
 import Carbohydrate from '../../assets/icons/tsx-format/Carbohydrate';
 import Lipid from '../../assets/icons/tsx-format/Lipid';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 type NutritionInformationContainerProps = {
     nutritionData: any;
+    loading: boolean;
+    error: string;
 };
 
 // export interface NutritionInformationContainerProps {
@@ -21,8 +24,14 @@ type NutritionInformationContainerProps = {
 
 function NutritionInformationContainer({
     nutritionData,
+    loading,
+    error,
 }: NutritionInformationContainerProps) {
-    return (
+    return loading ? (
+        <LoadingSpinner spinnerColor="red" />
+    ) : error ? (
+        <p>Impossible de récupérer vos informations de nutrition.</p>
+    ) : (
         <div className={classes['nutritions-info-container']}>
             <NutritionInformationElement
                 type={'Calories'}

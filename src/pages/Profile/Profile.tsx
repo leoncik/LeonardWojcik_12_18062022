@@ -36,6 +36,7 @@ function Profile() {
 
     // Error states
     // const [error, setError] = useState('');
+    const [userInfoError, setUserInfoError] = useState('');
     const [activityError, setActivityError] = useState('');
     const [performanceError, setPerformanceError] = useState('');
     const [sessionLengthError, setSessionLengthError] = useState('');
@@ -56,22 +57,22 @@ function Profile() {
     useEffect(() => {
         setIsUserInfoLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const { fetchedData, scoreData, nutritionData, scoreValue } =
-                await handleFetch(path, id);
-            if (fetchedData) {
+            const retrievedData = await handleFetch(path, id);
+            if (retrievedData) {
+                const { fetchedData, scoreData, nutritionData, scoreValue } =
+                    retrievedData;
                 setUserData(fetchedData.data.userInfos.firstName);
                 setUserScore(scoreData);
                 setUserScoreValue(scoreValue);
                 setUserKeyData(nutritionData);
-                setIsUserInfoLoading(false);
             } else {
-                setActivityError(errorMessage);
+                setUserInfoError(errorMessage);
             }
             setIsUserInfoLoading(false);
         };
         fetchData(
             endpoint.userEndpoint(id),
-            'Impossible de récupérer vos données de profil'
+            'Impossible de récupérer vos données de profil.'
         );
     }, []);
 
@@ -87,7 +88,7 @@ function Profile() {
         };
         fetchData(
             endpoint.activityEndpoint(id),
-            "Impossible de récupérer vos données d'activité"
+            "Impossible de récupérer vos données d'activité."
         );
     }, []);
 
@@ -103,7 +104,7 @@ function Profile() {
         };
         fetchData(
             endpoint.averageSessionEndpoint(id),
-            'Impossible de récupérer la durée des sessions'
+            'Impossible de récupérer la durée de vos sessions.'
         );
     }, []);
 
@@ -119,13 +120,17 @@ function Profile() {
         };
         fetchData(
             endpoint.performanceEndpoint(id),
-            'Impossible de récupérer vos performances'
+            'Impossible de récupérer vos performances.'
         );
     }, []);
 
     return (
         <div className="profile-content">
-            <WelcomingInfo firstName={userData} loading={isUserInfoLoading} />
+            <WelcomingInfo
+                firstName={userData}
+                loading={isUserInfoLoading}
+                error={userInfoError}
+            />
             <div className={classes.stat}>
                 <GraphContainer
                     GraphElement={
@@ -162,11 +167,17 @@ function Profile() {
                         <ScoreGraph
                             graphData={userScore}
                             scoreValue={userScoreValue}
+                            loading={isUserInfoLoading}
+                            error={userInfoError}
                         />
                     }
                     cssClasses={'score-graph'}
                 />
-                <NutritionInformationContainer nutritionData={userKeyData} />
+                <NutritionInformationContainer
+                    nutritionData={userKeyData}
+                    loading={isUserInfoLoading}
+                    error={userInfoError}
+                />
             </div>
         </div>
     );

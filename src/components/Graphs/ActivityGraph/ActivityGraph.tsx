@@ -15,6 +15,7 @@ import { CustomTooltip } from './CustomTooltip';
 
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 import classes from './ActivityGraph.module.css';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 type ActivityGraphProps = {
     graphData: unknown | any;
@@ -34,7 +35,7 @@ function ActivityGraph({ graphData, loading, error }: ActivityGraphProps) {
     }, []);
 
     return loading ? (
-        <div className={classes['loading-container']}></div>
+        <LoadingSpinner spinnerColor="#e60000" />
     ) : error ? (
         <p>{error}</p>
     ) : (

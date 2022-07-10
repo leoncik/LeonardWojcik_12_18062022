@@ -4,6 +4,7 @@ import {
     RadialBar,
     ResponsiveContainer,
 } from 'recharts';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 // Todo : try to find an efficient way to import CustomLabel as component.
@@ -12,12 +13,23 @@ import { CustomLabel } from './CustomLabel';
 type ScoreGraphProps = {
     graphData: unknown | any;
     scoreValue: number;
+    loading: boolean;
+    error: string;
 };
 
-function ScoreGraph({ graphData, scoreValue }: ScoreGraphProps) {
+function ScoreGraph({
+    graphData,
+    scoreValue,
+    loading,
+    error,
+}: ScoreGraphProps) {
     const circleSize = 300;
 
-    return (
+    return loading ? (
+        <LoadingSpinner spinnerColor={'#e60000'} />
+    ) : error ? (
+        <p>Impossible de récupérer votre score.</p>
+    ) : (
         <ResponsiveContainer width="99%" height="100%">
             <RadialBarChart
                 width={circleSize}

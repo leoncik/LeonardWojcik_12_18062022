@@ -45,36 +45,7 @@
     padding: 8px 12px;
 }
 
-/* LOADING CONTAINER */
-.loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-.loading-container:after {
-    content: ' ';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid var(--primary-color);
-    border-color: var(--primary-color) transparent var(--primary-color)
-        transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
-}
-@keyframes lds-dual-ring {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
+/* RESPONSIVE */
 
 @media all and (max-width: 750px) {
     .graph-header {

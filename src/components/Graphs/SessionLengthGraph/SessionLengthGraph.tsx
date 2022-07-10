@@ -1,6 +1,7 @@
 import { LineChart, Line, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { CustomTooltip } from './CustomTooltip';
 import { CustomCursor } from './CustomCursor';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 // import {ISessions} from '../../../factories/userAverageSessionsFactory'
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
@@ -17,7 +18,7 @@ function SessionLengthGraph({
     error,
 }: SessionLengthGraphProps) {
     return loading ? (
-        <p>Chargement…</p>
+        <LoadingSpinner spinnerColor={'white'} />
     ) : error ? (
         <p>{error}</p>
     ) : (

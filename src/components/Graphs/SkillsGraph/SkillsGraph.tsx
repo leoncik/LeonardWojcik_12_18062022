@@ -1,5 +1,7 @@
+// Hooks
 import { useEffect, useState } from 'react';
 
+// Graphs
 import {
     RadarChart,
     Radar,
@@ -7,6 +9,11 @@ import {
     PolarAngleAxis,
     ResponsiveContainer,
 } from 'recharts';
+
+// Components
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+
+// Mocked Data
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 type SkillsGraphProps = {
@@ -25,7 +32,7 @@ function SkillsGraph({ graphData, loading, error }: SkillsGraphProps) {
     }, []);
 
     return loading ? (
-        <p>Chargement…</p>
+        <LoadingSpinner spinnerColor={'#e60000'} />
     ) : error ? (
         <p>{error}</p>
     ) : (
