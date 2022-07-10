@@ -11,9 +11,11 @@ import {
 
 type SkillsGraphProps = {
     graphData: unknown | any;
+    loading: boolean;
+    error: string;
 };
 
-function SkillsGraph({ graphData }: SkillsGraphProps) {
+function SkillsGraph({ graphData, loading, error }: SkillsGraphProps) {
     // Watch page width.
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     useEffect(() => {
@@ -22,7 +24,11 @@ function SkillsGraph({ graphData }: SkillsGraphProps) {
         );
     }, []);
 
-    return (
+    return loading ? (
+        <p>Chargement…</p>
+    ) : error ? (
+        <p>{error}</p>
+    ) : (
         <ResponsiveContainer width="99%" height="100%">
             <RadarChart
                 cx="50%"

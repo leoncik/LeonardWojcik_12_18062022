@@ -7,10 +7,20 @@ import { CustomCursor } from './CustomCursor';
 
 type SessionLengthGraphProps = {
     graphData: unknown | any;
+    loading: boolean;
+    error: string;
 };
 
-function SessionLengthGraph({ graphData }: SessionLengthGraphProps) {
-    return (
+function SessionLengthGraph({
+    graphData,
+    loading,
+    error,
+}: SessionLengthGraphProps) {
+    return loading ? (
+        <p>Chargement…</p>
+    ) : error ? (
+        <p>{error}</p>
+    ) : (
         <ResponsiveContainer width="99%" height="100%">
             <LineChart
                 data={graphData}

@@ -19,9 +19,10 @@ import classes from './ActivityGraph.module.css';
 type ActivityGraphProps = {
     graphData: unknown | any;
     loading: boolean;
+    error: string;
 };
 
-function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
+function ActivityGraph({ graphData, loading, error }: ActivityGraphProps) {
     // Watch page width.
     // If the page width is lower than 750px, set barChart to vertical.
     const minPageWidth = 750;
@@ -34,6 +35,8 @@ function ActivityGraph({ graphData, loading }: ActivityGraphProps) {
 
     return loading ? (
         <div className={classes['loading-container']}></div>
+    ) : error ? (
+        <p>{error}</p>
     ) : (
         <div style={{ width: '100%', height: '100%' }}>
             {/* HEADER OF THE GRAPH */}
