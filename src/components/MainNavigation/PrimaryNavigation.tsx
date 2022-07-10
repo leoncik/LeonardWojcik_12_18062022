@@ -1,8 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import classes from './PrimaryNavigation.module.css';
 import logo from '../../assets/logo.svg';
 
 function PrimaryNavigation() {
+    const location = useLocation();
+
     return (
         <header>
             <nav className={classes['main-nav']}>
@@ -19,13 +21,14 @@ function PrimaryNavigation() {
                     >
                         Accueil
                     </NavLink>
-                    {/* Todo: set active link for any user */}
                     <NavLink
-                        to="/user/18"
-                        style={({ isActive }) => ({
-                            textDecoration: isActive ? 'underline' : 'none',
+                        to="#"
+                        style={{
+                            textDecoration: location.pathname.match(/user\/\d/)
+                                ? 'underline'
+                                : 'none',
                             pointerEvents: 'none',
-                        })}
+                        }}
                     >
                         Profil
                     </NavLink>
