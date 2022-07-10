@@ -1,0 +1,22 @@
+.error404-page-wrapper {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.error404-code-container {
+    display: flex;
+    height: 170px;
+    justify-content: space-around;
+    align-items: center;
+}
+.error404-code-container p {
+    font-size: 8rem;
+    font-weight: 800;
+}
+
+.error404-logo {
+    transform: rotate(142deg) scale(2);
+}
