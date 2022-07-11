@@ -1,24 +1,14 @@
 // Interfaces
-interface IUserActivity {
-    data: {
-        userId: number;
-        sessions: Array<ISessions>;
-    };
-}
-
-interface ISessions {
-    day: string | number;
-    kilogram: number;
-    calories: number;
-}
+import { IUserActivity, IActivitySessions } from '../interfaces/fetchedApiData';
 
 // Factory function
 const userActivityFactory = (userData: IUserActivity) => {
     // Get session info
-    const getSession = (sessions: Array<ISessions>) => {
+    const getSession = (sessions: Array<IActivitySessions>) => {
         // Replace date with session number
         sessions.map(
-            (session: ISessions, index: number) => (session.day = index + 1)
+            (session: IActivitySessions, index: number) =>
+                (session.day = index + 1)
         );
         return sessions;
     };

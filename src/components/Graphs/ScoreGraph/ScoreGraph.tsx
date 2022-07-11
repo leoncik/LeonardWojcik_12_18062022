@@ -7,9 +7,6 @@ import {
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
-// Todo : try to find an efficient way to import CustomLabel as component.
-import { CustomLabel } from './CustomLabel';
-
 type ScoreGraphProps = {
     graphData: unknown | any;
     scoreValue: number;
@@ -34,8 +31,6 @@ function ScoreGraph({
             <RadialBarChart
                 width={circleSize}
                 height={circleSize}
-                // cx={circleSize / 2}
-                // cy={circleSize / 2}
                 innerRadius={80}
                 outerRadius={100}
                 barSize={10}

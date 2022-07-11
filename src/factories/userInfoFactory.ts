@@ -1,27 +1,8 @@
-interface IUserInfo {
-    data: IUserInfoData;
-}
-
-interface IUserInfoData {
-    id: number;
-    keyData: IKeyData;
-    score: number;
-    todayScore: number;
-    userInfos: IUserInfos;
-}
-
-export interface IKeyData {
-    calorieCount: number | string;
-    carbohydrateCount: number;
-    lipidCount: number;
-    proteinCount: number;
-}
-
-export interface IUserInfos {
-    age: number;
-    firstName: string;
-    lastName: string;
-}
+import {
+    IUserInfo,
+    IUserInfoData,
+    IKeyData,
+} from '../interfaces/fetchedApiData';
 
 const userInfoFactory = (userData: IUserInfo) => {
     const getScore = (user: IUserInfoData): Array<{ score: number }> => {

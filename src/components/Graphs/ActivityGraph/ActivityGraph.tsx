@@ -17,8 +17,11 @@ import { CustomTooltip } from './CustomTooltip';
 import classes from './ActivityGraph.module.css';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
+// Interfaces
+import { IActivitySessions } from '../../../interfaces/fetchedApiData';
+
 type ActivityGraphProps = {
-    graphData: unknown | any;
+    graphData: Array<IActivitySessions> | undefined;
     loading: boolean;
     error: string;
 };

@@ -1,17 +1,4 @@
-import { IKeyData, IUserInfos } from '../factories/userInfoFactory';
-
-interface IUserPerformance {
-    data: {
-        data: Array<IPerformanceData>;
-        kind: Record<number, string>;
-        userId: number;
-    };
-}
-
-interface IPerformanceData {
-    value: number;
-    kind: number | string;
-}
+import { IUserPerformance } from '../interfaces/fetchedApiData';
 
 const userPerformanceFactory = (userData: IUserPerformance) => {
     const translateSkills = (performance: any) => {

@@ -1,20 +1,15 @@
-export interface IUserAverageSessions {
-    data: {
-        sessions: Array<ISessions>;
-    };
-}
-
-export interface ISessions {
-    day: number | string;
-    sessionLength: number;
-}
+import {
+    IUserAverageSessions,
+    IAverageSessions,
+} from '../interfaces/fetchedApiData';
 
 const userAverageSessionsFactory = (userData: IUserAverageSessions) => {
     // Format sessions dates
-    const formatSessionDays = (sessions: Array<ISessions>) => {
+    const formatSessionDays = (sessions: Array<IAverageSessions>) => {
         const daysLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         sessions.map(
-            (session: ISessions, index) => (session.day = daysLetters[index])
+            (session: IAverageSessions, index) =>
+                (session.day = daysLetters[index])
         );
         return sessions;
     };

@@ -18,10 +18,10 @@ import classes from './Profile.module.css';
 
 // Helpers
 import * as endpoint from '../../helpers/apiEndpoints';
-import useFetch from '../../helpers/useFetch';
 import handleFetch from '../../helpers/handleFetch';
 
 // Interfaces
+import { IActivitySessions } from '../../interfaces/fetchedApiData';
 // import {NutritionInformationContainerProps} from '../components/NutritionInformationContainer/NutritionInformation'
 
 function Profile() {
@@ -50,7 +50,10 @@ function Profile() {
     const [sessionLengthData, setSessionLengthData] = useState<unknown | null>(
         []
     );
-    const [activityData, setActivityData] = useState<unknown | null>([]);
+    const [activityData, setActivityData] = useState<
+        Array<IActivitySessions> | undefined
+    >([]);
+    console.log(activityData);
     const [performanceData, setPerformanceData] = useState<unknown | null>([]);
 
     // API call (user info)
