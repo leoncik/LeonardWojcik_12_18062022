@@ -1,7 +1,6 @@
-/* Todo : adjust breakpoints */
-
 .stat {
     display: grid;
+    grid-auto-columns: 1fr 1fr 1fr 0.5fr;
     grid-template-areas:
         'ActivityGraph        ActivityGraph   ActivityGraph   NutritionInfo'
         'SessionLengthGraph   SkillsGraph     ScoreGraph      NutritionInfo';
@@ -11,15 +10,6 @@
 
 /* Rules for smaller screens */
 @media all and (max-width: 900px) {
-    .stat {
-        grid-template-areas:
-            'ActivityGraph        ActivityGraph   ActivityGraph   ActivityGraph'
-            'SessionLengthGraph   SkillsGraph     SkillsGraph      ScoreGraph'
-            'NutritionInfo     NutritionInfo     NutritionInfo    NutritionInfo';
-    }
-}
-
-@media all and (max-width: 852px) {
     .stat {
         grid-template-areas:
             'ActivityGraph        ActivityGraph   ActivityGraph '

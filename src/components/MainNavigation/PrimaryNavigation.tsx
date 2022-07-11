@@ -9,10 +9,12 @@ function PrimaryNavigation() {
         <header>
             <nav className={classes['main-nav']}>
                 <ul>
-                    <li className={classes['header-logo']}>
-                        <img src={logo} alt="logo" />
-                        <p>SportSee</p>
-                    </li>
+                    <div className="logo-container">
+                        <li className={classes['header-logo']}>
+                            <img src={logo} alt="logo" />
+                            <p>SportSee</p>
+                        </li>
+                    </div>
                     <NavLink
                         to="/"
                         style={({ isActive }) => ({

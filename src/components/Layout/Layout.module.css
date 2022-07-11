@@ -8,8 +8,8 @@
     width: 100%;
 }
 
-/* Support for 1024x780 screens */
-@media all and (max-width: 1024px) {
+/* Support for medium screens */
+@media all and (max-width: 1224px) {
     .page-content {
         margin-left: 150px;
         margin-right: 22.5px;
