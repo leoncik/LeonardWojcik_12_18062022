@@ -6,9 +6,10 @@ import {
 } from 'recharts';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+import { IUserInfoData } from '../../../interfaces/fetchedApiData';
 
 type ScoreGraphProps = {
-    graphData: unknown | any;
+    graphData: Array<IUserInfoData['score']> | undefined;
     scoreValue: number;
     loading: boolean;
     error: string;
@@ -56,7 +57,7 @@ function ScoreGraph({
                 <RadialBar
                     dataKey="score"
                     cornerRadius={circleSize / 2}
-                    fill="red"
+                    fill="#e60000"
                 />
 
                 {/* CUSTOM LABEL (Center of the chart) */}

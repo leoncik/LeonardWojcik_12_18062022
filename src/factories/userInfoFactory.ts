@@ -1,10 +1,6 @@
-import {
-    IUserInfo,
-    IUserInfoData,
-    IKeyData,
-} from '../interfaces/fetchedApiData';
+import { IUserInfoData, IKeyData } from '../interfaces/fetchedApiData';
 
-const userInfoFactory = (userData: IUserInfo) => {
+const userInfoFactory = () => {
     const getScore = (user: IUserInfoData): Array<{ score: number }> => {
         // ! There are two different key for user score.
         const score = [

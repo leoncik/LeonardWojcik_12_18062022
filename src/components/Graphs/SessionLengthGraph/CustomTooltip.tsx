@@ -1,8 +1,8 @@
 import { TooltipProps } from 'recharts';
-import {
-    NameType,
-    ValueType,
-} from 'recharts/types/component/DefaultTooltipContent';
+// import {
+//     NameType,
+//     ValueType,
+// } from 'recharts/types/component/DefaultTooltipContent';
 import classes from './SessionLengthGraph.module.css';
 
 // ! New version (problem if length equals 0 minutes)

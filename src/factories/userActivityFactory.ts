@@ -1,8 +1,8 @@
 // Interfaces
-import { IUserActivity, IActivitySessions } from '../interfaces/fetchedApiData';
+import { IActivitySessions } from '../interfaces/fetchedApiData';
 
 // Factory function
-const userActivityFactory = (userData: IUserActivity) => {
+const userActivityFactory = () => {
     // Get session info
     const getSession = (sessions: Array<IActivitySessions>) => {
         // Replace date with session number

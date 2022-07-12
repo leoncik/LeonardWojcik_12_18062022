@@ -13,11 +13,14 @@ import {
 // Components
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
+// Interfaces
+import { IPerformanceData } from '../../../interfaces/fetchedApiData';
+
 // Mocked Data
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 type SkillsGraphProps = {
-    graphData: unknown | any;
+    graphData: Array<IPerformanceData> | undefined;
     loading: boolean;
     error: string;
 };

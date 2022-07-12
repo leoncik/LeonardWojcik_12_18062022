@@ -7,20 +7,14 @@ import Carbohydrate from '../../assets/icons/tsx-format/Carbohydrate';
 import Lipid from '../../assets/icons/tsx-format/Lipid';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
+// Interfaces
+import { IKeyData } from '../../interfaces/fetchedApiData';
+
 type NutritionInformationContainerProps = {
-    nutritionData: any;
+    nutritionData: IKeyData | any;
     loading: boolean;
     error: string;
 };
-
-// export interface NutritionInformationContainerProps {
-//     nutritionData: {
-//         calorieCount: number
-//         carbohydrateCount: number
-//         lipidCount: number
-//         proteinCount: number
-//     };
-// }
 
 function NutritionInformationContainer({
     nutritionData,

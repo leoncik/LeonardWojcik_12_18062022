@@ -1,7 +1,10 @@
-import { IUserPerformance } from '../interfaces/fetchedApiData';
+import {
+    IUserPerformance,
+    IPerformanceData,
+} from '../interfaces/fetchedApiData';
 
-const userPerformanceFactory = (userData: IUserPerformance) => {
-    const translateSkills = (performance: any) => {
+const userPerformanceFactory = () => {
+    const translateSkills = (performance: Record<number, string>) => {
         // const performanceDictionary = {
         //     "cardio": "Cardio",
         //     "energy": "Énergie",
@@ -27,14 +30,14 @@ const userPerformanceFactory = (userData: IUserPerformance) => {
         return translatedPerformanceNames;
     };
 
-    const formatData = (performanceData: any) => {
+    const formatData = (performanceData: IUserPerformance['data']) => {
         // Convert performanceNames into an array.
         const performanceNamesValues = Object.values(performanceData.kind);
         const performanceValues = performanceData.data;
 
         // Replace performance kind number with the associated name.
         performanceValues.map(
-            (value: any, index: number) =>
+            (value: IPerformanceData, index: number) =>
                 (value.kind = performanceNamesValues[index])
         );
     };

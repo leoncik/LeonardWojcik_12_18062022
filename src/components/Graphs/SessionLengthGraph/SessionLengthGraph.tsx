@@ -6,8 +6,11 @@ import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 // import {ISessions} from '../../../factories/userAverageSessionsFactory'
 // import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
+// Interfaces
+import { IAverageSessions } from '../../../interfaces/fetchedApiData';
+
 type SessionLengthGraphProps = {
-    graphData: unknown | any;
+    graphData: Array<IAverageSessions> | undefined;
     loading: boolean;
     error: string;
 };

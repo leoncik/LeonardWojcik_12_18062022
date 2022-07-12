@@ -7,6 +7,9 @@ import userInfoFactory from '../factories/userInfoFactory';
 // Helpers
 import * as endpoint from '../helpers/apiEndpoints';
 
+// Interfaces
+// import {IUserInfo, IUserActivity} from '../interfaces/fetchedApiData'
+
 const handleFormatData = (
     fetchedData: any,
     path: string,
@@ -14,37 +17,31 @@ const handleFormatData = (
 ) => {
     switch (path) {
         case endpoint.userEndpoint(id): {
-            const scoreData = userInfoFactory(fetchedData).getScore(
-                fetchedData.data
-            );
-            const scoreValue = userInfoFactory(fetchedData).getScore(
-                fetchedData.data
-            )[0].score;
-            const nutritionData = userInfoFactory(fetchedData).formatCalories(
+            const scoreData = userInfoFactory().getScore(fetchedData.data);
+            const scoreValue = userInfoFactory().getScore(fetchedData.data)[0]
+                .score;
+            const nutritionData = userInfoFactory().formatCalories(
                 fetchedData.data.keyData
             );
             return { fetchedData, scoreData, nutritionData, scoreValue };
         }
 
         case endpoint.averageSessionEndpoint(id): {
-            const averageSessionData = userAverageSessionsFactory(
-                fetchedData
-            ).formatSessionDays(fetchedData.data.sessions);
+            const averageSessionData =
+                userAverageSessionsFactory().formatSessionDays(
+                    fetchedData.data.sessions
+                );
             return averageSessionData;
         }
 
         case endpoint.performanceEndpoint(id): {
-            userPerformanceFactory(fetchedData).translateSkills(
-                fetchedData.data.kind
-            );
-            userPerformanceFactory(fetchedData).formatData(fetchedData.data);
+            userPerformanceFactory().translateSkills(fetchedData.data.kind);
+            userPerformanceFactory().formatData(fetchedData.data);
             return fetchedData;
         }
 
         case endpoint.activityEndpoint(id): {
-            userActivityFactory(fetchedData).getSession(
-                fetchedData.data.sessions
-            );
+            userActivityFactory().getSession(fetchedData.data.sessions);
             return fetchedData;
         }
 

@@ -3,7 +3,7 @@ import { genericFetch } from './genericFetch';
 import handleFormatData from './handleFormatData';
 
 async function handleFetch(path: string, id: string | undefined) {
-    const fetchedData: any = await genericFetch(path);
+    const fetchedData = await genericFetch(path);
     let data;
     fetchedData === 'can not get user'
         ? (data = null)

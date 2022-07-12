@@ -21,7 +21,13 @@ import * as endpoint from '../../helpers/apiEndpoints';
 import handleFetch from '../../helpers/handleFetch';
 
 // Interfaces
-import { IActivitySessions } from '../../interfaces/fetchedApiData';
+import {
+    IActivitySessions,
+    IUserInfoData,
+    IAverageSessions,
+    IPerformanceData,
+    IKeyData,
+} from '../../interfaces/fetchedApiData';
 // import {NutritionInformationContainerProps} from '../components/NutritionInformationContainer/NutritionInformation'
 
 function Profile() {
@@ -43,18 +49,21 @@ function Profile() {
 
     // Data states
     const [userData, setUserData] = useState('');
-    const [userKeyData, setUserKeyData] = useState<unknown | null>('');
-    const [userScore, setUserScore] = useState<unknown | null>('');
+    const [userKeyData, setUserKeyData] = useState<IKeyData | undefined>();
+    const [userScore, setUserScore] = useState<
+        Array<IUserInfoData['score']> | undefined
+    >([]);
     const [userScoreValue, setUserScoreValue] = useState(0);
 
-    const [sessionLengthData, setSessionLengthData] = useState<unknown | null>(
-        []
-    );
+    const [sessionLengthData, setSessionLengthData] = useState<
+        Array<IAverageSessions> | undefined
+    >([]);
     const [activityData, setActivityData] = useState<
         Array<IActivitySessions> | undefined
     >([]);
-    console.log(activityData);
-    const [performanceData, setPerformanceData] = useState<unknown | null>([]);
+    const [performanceData, setPerformanceData] = useState<
+        Array<IPerformanceData> | undefined
+    >([]);
 
     // API call (user info)
     useEffect(() => {

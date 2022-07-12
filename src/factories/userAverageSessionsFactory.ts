@@ -1,9 +1,6 @@
-import {
-    IUserAverageSessions,
-    IAverageSessions,
-} from '../interfaces/fetchedApiData';
+import { IAverageSessions } from '../interfaces/fetchedApiData';
 
-const userAverageSessionsFactory = (userData: IUserAverageSessions) => {
+const userAverageSessionsFactory = () => {
     // Format sessions dates
     const formatSessionDays = (sessions: Array<IAverageSessions>) => {
         const daysLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
