@@ -1,4 +1,3 @@
-import './App.css';
 import PrimaryNavigation from '../MainNavigation/PrimaryNavigation';
 import Layout from '../Layout/Layout';
 import { Route, Routes } from 'react-router-dom';

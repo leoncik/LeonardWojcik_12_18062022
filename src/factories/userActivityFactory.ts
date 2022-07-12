@@ -1,11 +1,13 @@
 // Interfaces
 import { IActivitySessions } from '../interfaces/fetchedApiData';
 
-// Factory function
 const userActivityFactory = () => {
-    // Get session info
+    /**
+     * Replace session date by It's number.
+     * @param {Array<IActivitySessions>} sessions - Activity sessions data.
+     * @returns Formatted sessions number.
+     */
     const getSession = (sessions: Array<IActivitySessions>) => {
-        // Replace date with session number
         sessions.map(
             (session: IActivitySessions, index: number) =>
                 (session.day = index + 1)

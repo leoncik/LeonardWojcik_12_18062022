@@ -8,10 +8,18 @@ import userInfoFactory from '../factories/userInfoFactory';
 import * as endpoint from '../helpers/apiEndpoints';
 
 // Interfaces
-// import {IUserInfo, IUserActivity} from '../interfaces/fetchedApiData'
+import { IUserInfo, IUserActivity } from '../interfaces/fetchedApiData';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/**
+ * Format data according to API endpoint.
+ * @param fetchedData Retrieved data.
+ * @param {string} path API endpoint.
+ * @param {string} id - User's id.
+ * @returns Formatted data.
+ */
 const handleFormatData = (
-    fetchedData: any,
+    fetchedData: IUserInfo | IUserActivity | any,
     path: string,
     id: string | undefined
 ) => {
@@ -49,5 +57,7 @@ const handleFormatData = (
             break;
     }
 };
+
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export default handleFormatData;

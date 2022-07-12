@@ -10,6 +10,8 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 // Interfaces
 import { IKeyData } from '../../interfaces/fetchedApiData';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 type NutritionInformationContainerProps = {
     nutritionData: IKeyData | any;
     loading: boolean;
@@ -54,5 +56,7 @@ function NutritionInformationContainer({
         </div>
     );
 }
+
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export default NutritionInformationContainer;

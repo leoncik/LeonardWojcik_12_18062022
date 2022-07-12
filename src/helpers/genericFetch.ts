@@ -1,3 +1,10 @@
+/**
+ * Fetches data from url.
+ * @param {string} url - Fetched url
+ * @param {string} method  - Fetch method (set to 'GET')
+ * @param headers
+ * @returns {}
+ */
 export const genericFetch = async (
     url: string,
     method = 'GET',

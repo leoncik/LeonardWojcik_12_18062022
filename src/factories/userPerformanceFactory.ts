@@ -4,16 +4,12 @@ import {
 } from '../interfaces/fetchedApiData';
 
 const userPerformanceFactory = () => {
+    /**
+     * Translate performance kinds into French.
+     * @param {Record<number, string>} performance - User's performance.
+     * @returns - User's performance with skill types translated into French.
+     */
     const translateSkills = (performance: Record<number, string>) => {
-        // const performanceDictionary = {
-        //     "cardio": "Cardio",
-        //     "energy": "Énergie",
-        //     "endurance": "Endurance",
-        //     "strength": "Force",
-        //     "speed": "Vitesse",
-        //     "intensity": "Intensité"
-        // }
-
         const performanceDictionary = {
             1: 'Cardio',
             2: 'Énergie',
@@ -30,6 +26,11 @@ const userPerformanceFactory = () => {
         return translatedPerformanceNames;
     };
 
+    /**
+     * Format performance data (update performance kind names).
+     * @param {IUserPerformance['data']} performanceData - User's performance data.
+     * @returns - Updated user's performance data.
+     */
     const formatData = (performanceData: IUserPerformance['data']) => {
         // Convert performanceNames into an array.
         const performanceNamesValues = Object.values(performanceData.kind);
