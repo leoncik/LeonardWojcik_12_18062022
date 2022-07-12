@@ -1,3 +1,4 @@
+// CSS
 import classes from './GraphContainer.module.css';
 
 type GraphContainerProps = {

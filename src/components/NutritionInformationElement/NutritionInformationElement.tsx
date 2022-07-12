@@ -1,3 +1,4 @@
+// CSS
 import classes from './NutritionInformationElement.module.css';
 
 type NutritionInformationElementProps = {

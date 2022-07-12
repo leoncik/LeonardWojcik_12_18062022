@@ -1,7 +1,7 @@
-// Hooks
+// React hooks
 import { useEffect, useState } from 'react';
 
-// Graphs
+// Recharts
 import {
     RadarChart,
     Radar,
@@ -10,14 +10,11 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
-// Components
+// Page components
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 // Interfaces
 import { IPerformanceData } from '../../../interfaces/fetchedApiData';
-
-// Mocked Data
-// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
 
 type SkillsGraphProps = {
     graphData: Array<IPerformanceData> | undefined;

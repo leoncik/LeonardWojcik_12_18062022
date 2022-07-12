@@ -1,4 +1,7 @@
+// Recharts
 import { TooltipProps } from 'recharts';
+
+// CSS
 import classes from './ActivityGraph.module.css';
 
 export const CustomTooltip = ({

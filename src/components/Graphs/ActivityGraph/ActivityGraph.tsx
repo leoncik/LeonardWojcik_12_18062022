@@ -13,9 +13,11 @@ import {
 } from 'recharts';
 import { CustomTooltip } from './CustomTooltip';
 
-// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
-import classes from './ActivityGraph.module.css';
+// Page components
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+
+// CSS
+import classes from './ActivityGraph.module.css';
 
 // Interfaces
 import { IActivitySessions } from '../../../interfaces/fetchedApiData';

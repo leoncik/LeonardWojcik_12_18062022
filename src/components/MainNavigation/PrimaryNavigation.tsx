@@ -1,5 +1,10 @@
+// Routing
 import { NavLink, useLocation } from 'react-router-dom';
+
+// CSS
 import classes from './PrimaryNavigation.module.css';
+
+// Assets
 import logo from '../../assets/logo.svg';
 
 function PrimaryNavigation() {

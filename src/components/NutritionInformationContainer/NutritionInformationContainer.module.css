@@ -4,9 +4,6 @@
     justify-content: space-between;
     gap: 39px;
     grid-area: NutritionInfo;
-
-    /* background-color: orange;
-    border-radius: 5px; */
 }
 
 @media all and (max-width: 900px) {

@@ -1,5 +1,10 @@
+// Routing
 import { Link } from 'react-router-dom';
+
+// Assets
 import logo from '../../assets/logo.svg';
+
+// CSS
 import classes from './Error404.module.css';
 
 function Error404() {

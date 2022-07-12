@@ -1,11 +1,15 @@
-import classes from './NutritionInformationContainer.module.css';
-import NutritionInformationElement from '../NutritionInformationElement/NutritionInformationElement';
-
+// Assets
 import Energy from '../../assets/icons/tsx-format/Energy';
 import Protein from '../../assets/icons/tsx-format/Protein';
 import Carbohydrate from '../../assets/icons/tsx-format/Carbohydrate';
 import Lipid from '../../assets/icons/tsx-format/Lipid';
+
+// Page components
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import NutritionInformationElement from '../NutritionInformationElement/NutritionInformationElement';
+
+// CSS
+import classes from './NutritionInformationContainer.module.css';
 
 // Interfaces
 import { IKeyData } from '../../interfaces/fetchedApiData';

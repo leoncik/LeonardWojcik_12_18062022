@@ -1,9 +1,12 @@
+// Recharts
 import { TooltipProps } from 'recharts';
-import classes from './SessionLengthGraph.module.css';
 import {
     NameType,
     ValueType,
 } from 'recharts/types/component/DefaultTooltipContent';
+
+// CSS
+import classes from './SessionLengthGraph.module.css';
 
 export const CustomTooltip = ({
     active,

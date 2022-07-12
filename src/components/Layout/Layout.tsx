@@ -1,4 +1,7 @@
+// Page components
 import SecondaryNavigation from '../SecondaryNavigation/SecondaryNavigation';
+
+// CSS
 import classes from './Layout.module.css';
 
 type LayoutProps = {

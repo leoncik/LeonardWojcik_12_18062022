@@ -1,9 +1,12 @@
+// Page components
 import PrimaryNavigation from '../MainNavigation/PrimaryNavigation';
-import Layout from '../Layout/Layout';
-import { Route, Routes } from 'react-router-dom';
 import Profile from '../../pages/Profile/Profile';
+import Layout from '../Layout/Layout';
 import Home from '../../pages/Home/Home';
 import Error404 from '../../pages/Error404/Error404';
+
+// Routing
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
     return (

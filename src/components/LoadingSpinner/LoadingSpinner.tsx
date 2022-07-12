@@ -1,3 +1,4 @@
+// CSS
 import classes from './LoadingSpinner.module.css';
 
 type LoadingSpinnerProps = {

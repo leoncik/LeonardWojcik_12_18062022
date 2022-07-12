@@ -1,11 +1,15 @@
+// Recharts
 import {
     RadialBarChart,
     PolarAngleAxis,
     RadialBar,
     ResponsiveContainer,
 } from 'recharts';
+
+// Page components
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
-// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+
+// Interfaces
 import { IUserInfoData } from '../../../interfaces/fetchedApiData';
 
 type ScoreGraphProps = {

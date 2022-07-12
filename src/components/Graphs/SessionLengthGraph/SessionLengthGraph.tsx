@@ -1,10 +1,12 @@
+// Recharts
 import { LineChart, Line, XAxis, ResponsiveContainer, Tooltip } from 'recharts';
+
+// Custom components
 import { CustomTooltip } from './CustomTooltip';
 import { CustomCursor } from './CustomCursor';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-// import {ISessions} from '../../../factories/userAverageSessionsFactory'
-// import { MOCKED_DATA } from '../../../helpers/MOCKED_DATA';
+// Page components
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 // Interfaces
 import { IAverageSessions } from '../../../interfaces/fetchedApiData';

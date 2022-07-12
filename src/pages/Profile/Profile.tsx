@@ -28,20 +28,17 @@ import {
     IPerformanceData,
     IKeyData,
 } from '../../interfaces/fetchedApiData';
-// import {NutritionInformationContainerProps} from '../components/NutritionInformationContainer/NutritionInformation'
 
 function Profile() {
     const { id } = useParams();
 
     // Loading states
-    // const [isLoading, setIsLoading] = useState(true);
     const [isActivityLoading, setIsActivityLoading] = useState(true);
     const [isPerformanceLoading, setIsPerformanceLoading] = useState(true);
     const [isSessionLengthLoading, setIsSessionLengthLoading] = useState(true);
     const [isUserInfoLoading, setIsUserInfoLoading] = useState(true);
 
     // Error states
-    // const [error, setError] = useState('');
     const [userInfoError, setUserInfoError] = useState('');
     const [activityError, setActivityError] = useState('');
     const [performanceError, setPerformanceError] = useState('');

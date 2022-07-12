@@ -1,3 +1,4 @@
+// CSS
 import classes from './WelcomingInfo.module.css';
 
 type WelcomingInfoProps = {
