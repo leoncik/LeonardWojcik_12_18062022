@@ -78,7 +78,7 @@ function Profile() {
             setIsUserInfoLoading(false);
         };
         fetchData(
-            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_INFO.json`,
+            `/MOCKED_DATA/USER_${id}/MOCKED_USER_INFO.json`,
             'Impossible de récupérer vos données de profil.'
         );
     }, []);
@@ -94,7 +94,7 @@ function Profile() {
             setIsActivityLoading(false);
         };
         fetchData(
-            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_ACTIVITY.json`,
+            `/MOCKED_DATA/USER_${id}/MOCKED_USER_ACTIVITY.json`,
             "Impossible de récupérer vos données d'activité."
         );
     }, []);
@@ -110,7 +110,7 @@ function Profile() {
             setIsSessionLengthLoading(false);
         };
         fetchData(
-            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_AVERAGE_SESSION.json`,
+            `/MOCKED_DATA/USER_${id}/MOCKED_USER_AVERAGE_SESSION.json`,
             'Impossible de récupérer la durée de vos sessions.'
         );
     }, []);
@@ -126,7 +126,7 @@ function Profile() {
             setIsPerformanceLoading(false);
         };
         fetchData(
-            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_PERFORMANCE.json`,
+            `/MOCKED_DATA/USER_${id}/MOCKED_USER_PERFORMANCE.json`,
             'Impossible de récupérer vos performances.'
         );
     }, []);
