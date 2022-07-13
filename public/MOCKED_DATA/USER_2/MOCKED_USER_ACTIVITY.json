@@ -15,26 +15,6 @@
                 "day": 3,
                 "kilogram": 56,
                 "calories": 78
-            },
-            {
-                "day": 4,
-                "kilogram": 57,
-                "calories": 75
-            },
-            {
-                "day": 5,
-                "kilogram": 57,
-                "calories": 80
-            },
-            {
-                "day": 6,
-                "kilogram": 57,
-                "calories": 60
-            },
-            {
-                "day": 7,
-                "kilogram": 58,
-                "calories": 68
             }
         ],
         "userId": 7
