@@ -1,0 +1,32 @@
+{
+    "sessions": [
+        {
+            "day": "L",
+            "sessionLength": 30
+        },
+        {
+            "day": "M",
+            "sessionLength": 44
+        },
+        {
+            "day": "M",
+            "sessionLength": 59
+        },
+        {
+            "day": "J",
+            "sessionLength": 28
+        },
+        {
+            "day": "V",
+            "sessionLength": 11
+        },
+        {
+            "day": "S",
+            "sessionLength": 68
+        },
+        {
+            "day": "D",
+            "sessionLength": 12
+        }
+    ]
+}

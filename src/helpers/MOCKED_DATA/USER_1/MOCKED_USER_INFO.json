@@ -1,0 +1,22 @@
+{
+    "data" : {
+        "id": 133,
+        "keyData" : {
+            "calorieCount": "2,500",
+            "carbohydrateCount": 150,
+            "lipidCount": 120,
+            "proteinCount": 90
+        },
+        "scoreValue": 0.88,
+        "score": [
+            {
+                "score": 0.88
+            }
+        ],
+        "userInfos": {
+            "age": 34,
+            "firstName": "Rocky",
+            "lastName": "Balboa"
+        }
+    }
+}

@@ -8,10 +8,13 @@ function Home() {
             <p>Veuillez sélectionner un utilisateur :</p>
             <ul>
                 <li>
-                    <Link to="/user/12">Utilisateur 12</Link>
+                    <Link to="/user/1">Utilisateur 1</Link>
                 </li>
                 <li>
-                    <Link to="/user/18">Utilisateur 18</Link>
+                    <Link to="/user/2">Utilisateur 2</Link>
+                </li>
+                <li>
+                    <Link to="/user/3">Utilisateur 3</Link>
                 </li>
             </ul>
         </div>

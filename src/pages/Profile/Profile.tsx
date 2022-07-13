@@ -17,8 +17,7 @@ import ActivityGraph from '../../components/Graphs/ActivityGraph/ActivityGraph';
 import classes from './Profile.module.css';
 
 // Helpers
-import * as endpoint from '../../helpers/apiEndpoints';
-import handleFetch from '../../helpers/handleFetch';
+import { genericFetch } from '../../helpers/genericFetch';
 
 // Interfaces
 import {
@@ -66,21 +65,20 @@ function Profile() {
     useEffect(() => {
         setIsUserInfoLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, id);
+            const retrievedData = await genericFetch(path);
             if (retrievedData) {
-                const { fetchedData, scoreData, nutritionData, scoreValue } =
-                    retrievedData;
-                setUserData(fetchedData.data.userInfos.firstName);
-                setUserScore(scoreData);
-                setUserScoreValue(scoreValue);
-                setUserKeyData(nutritionData);
+                console.log(retrievedData);
+                setUserData(retrievedData.data.userInfos.firstName);
+                setUserScore(retrievedData.data.score);
+                setUserScoreValue(retrievedData.data.scoreValue);
+                setUserKeyData(retrievedData.data.keyData);
             } else {
                 setUserInfoError(errorMessage);
             }
             setIsUserInfoLoading(false);
         };
         fetchData(
-            endpoint.userEndpoint(id),
+            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_INFO.json`,
             'Impossible de récupérer vos données de profil.'
         );
     }, []);
@@ -89,14 +87,14 @@ function Profile() {
     useEffect(() => {
         setIsActivityLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, id);
+            const retrievedData = await genericFetch(path);
             retrievedData
                 ? setActivityData(retrievedData.data.sessions)
                 : setActivityError(errorMessage);
             setIsActivityLoading(false);
         };
         fetchData(
-            endpoint.activityEndpoint(id),
+            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_ACTIVITY.json`,
             "Impossible de récupérer vos données d'activité."
         );
     }, []);
@@ -105,14 +103,14 @@ function Profile() {
     useEffect(() => {
         setIsSessionLengthLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, id);
+            const retrievedData = await genericFetch(path);
             retrievedData
-                ? setSessionLengthData(retrievedData)
+                ? setSessionLengthData(retrievedData.sessions)
                 : setSessionLengthError(errorMessage);
             setIsSessionLengthLoading(false);
         };
         fetchData(
-            endpoint.averageSessionEndpoint(id),
+            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_AVERAGE_SESSION.json`,
             'Impossible de récupérer la durée de vos sessions.'
         );
     }, []);
@@ -121,14 +119,14 @@ function Profile() {
     useEffect(() => {
         setIsPerformanceLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
-            const retrievedData = await handleFetch(path, id);
+            const retrievedData = await genericFetch(path);
             retrievedData
                 ? setPerformanceData(retrievedData.data.data)
                 : setPerformanceError(errorMessage);
             setIsPerformanceLoading(false);
         };
         fetchData(
-            endpoint.performanceEndpoint(id),
+            `../../../src/helpers/MOCKED_DATA/USER_${id}/MOCKED_USER_PERFORMANCE.json`,
             'Impossible de récupérer vos performances.'
         );
     }, []);

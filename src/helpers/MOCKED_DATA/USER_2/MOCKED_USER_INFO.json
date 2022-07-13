@@ -1,0 +1,22 @@
+{
+    "data" : {
+        "id": 133,
+        "keyData" : {
+            "calorieCount": "1,040",
+            "carbohydrateCount": 60,
+            "lipidCount": 42,
+            "proteinCount": 700
+        },
+        "scoreValue": 0.12,
+        "score": [
+            {
+                "score": 0.12
+            }
+        ],
+        "userInfos": {
+            "age": 34,
+            "firstName": "François",
+            "lastName": "Couperin"
+        }
+    }
+}

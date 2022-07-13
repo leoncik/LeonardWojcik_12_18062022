@@ -1,0 +1,42 @@
+{
+    "data" : {
+        "sessions": [
+            {
+                "day": 1,
+                "kilogram": 88,
+                "calories": 300
+            },
+            {
+                "day": 2,
+                "kilogram": 88,
+                "calories": 400
+            },
+            {
+                "day": 3,
+                "kilogram": 90,
+                "calories": 250
+            },
+            {
+                "day": 4,
+                "kilogram": 87,
+                "calories": 400
+            },
+            {
+                "day": 5,
+                "kilogram": 88,
+                "calories": 430
+            },
+            {
+                "day": 6,
+                "kilogram": 88,
+                "calories": 200
+            },
+            {
+                "day": 7,
+                "kilogram": 88,
+                "calories": 409
+            }
+        ],
+        "userId": 133
+    }
+}
