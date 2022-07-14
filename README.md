@@ -25,6 +25,7 @@ SportSee is a sport coach app. For this project, I had to develop the profile pa
 -   I had the choice between [D3.js](https://d3js.org/) and [Recharts](https://recharts.org/) to build the charts. After testing both, I sticked with Recharts for more convenience. A simple bar chart test and setup of D3 + React can be found of [this branch](https://github.com/leoncik/LeonardWojcik_12_18062022/tree/feat/graph-d3-version) (created very early in the development so most elements are not integrated. It just gives an idea about how to setup a D3 + React project and structure the code).
 -   I used [TypeScript](https://www.typescriptlang.org/) in order to make the code more robust and prevent bugs while formatting data.
 -   In order to ensure the code quality, I have used [Husky](https://typicode.github.io/husky), [lint-staged](https://www.npmjs.com/package/lint-staged), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) to lint and format the code.
+-   I have written and set up some tests using [Vitest](https://vitest.dev/). They will run before each "push" (through Husky) in order to prevent regressions.
 
 ## Live demo
 
