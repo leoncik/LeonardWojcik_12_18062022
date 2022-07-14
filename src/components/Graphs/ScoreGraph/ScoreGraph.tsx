@@ -82,8 +82,13 @@ function ScoreGraph({
                 >
                     {scoreValue * 100}%
                 </text>
-                <text x="50%" y="58%" textAnchor="middle" fill="#74798C">
-                    de votre objectif
+                <text x="50%" y="50%" textAnchor="middle" fill="#74798C">
+                    <tspan x="50%" dy="1.2em">
+                        de votre
+                    </tspan>
+                    <tspan x="50%" dy="1.3em">
+                        objectif
+                    </tspan>
                 </text>
             </RadialBarChart>
         </ResponsiveContainer>

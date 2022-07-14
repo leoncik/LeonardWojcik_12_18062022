@@ -1,10 +1,14 @@
 @import '../../helpers/css-variables.css';
 
+.main-nav {
+    font-size: 1.4rem;
+}
+
 .main-nav ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 36px 87px 31px 29px;
+    padding: 19px 87px 14px 29px;
     background-color: black;
     color: white;
     margin-bottom: 0;
@@ -28,7 +32,7 @@
 @media all and (max-width: 700px) {
     .main-nav ul {
         justify-content: space-between;
-        padding: 18px 43.5px 15.5px 14.5px;
+        padding: 18px 43.5px 14px 14.5px;
     }
     .header-logo {
         flex-direction: column;
@@ -38,7 +42,7 @@
         transform: scale(0.7);
     }
     .main-nav {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
     .main-nav ul {
         gap: 15px;

@@ -49,7 +49,7 @@
 
 @media all and (max-width: 750px) {
     .graph-header {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
     .graph-legend ul {
         gap: 30px;

@@ -28,7 +28,7 @@ function NutritionInformationContainer({
     error,
 }: NutritionInformationContainerProps) {
     return loading ? (
-        <LoadingSpinner spinnerColor="red" />
+        <LoadingSpinner spinnerColor="#e60000" />
     ) : error ? (
         <p>Impossible de récupérer vos informations de nutrition.</p>
     ) : (

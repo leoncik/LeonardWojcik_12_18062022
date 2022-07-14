@@ -37,6 +37,9 @@ body {
 a {
     text-decoration: none;
 }
+a:active {
+    transform: scale(1.02);
+}
 
 ul {
     list-style: none;
