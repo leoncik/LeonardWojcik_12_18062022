@@ -15,10 +15,10 @@ function PrimaryNavigation() {
             <nav className={classes['main-nav']}>
                 <ul>
                     <div className="logo-container">
-                        <li className={classes['header-logo']}>
+                        <NavLink to="/" className={classes['header-logo']}>
                             <img src={logo} alt="logo" />
                             <p>SportSee</p>
-                        </li>
+                        </NavLink>
                     </div>
                     <NavLink
                         to="/"

@@ -37,6 +37,7 @@
     "vite": "^2.9.9",
     "vitest": "^0.17.1"
   },
+  "browserslist": "last 2 versions",
   "lint-staged": {
     "*.{tsx,ts}": "eslint --cache --fix",
     "*.{ts,tsx,css,md}": "prettier --write"

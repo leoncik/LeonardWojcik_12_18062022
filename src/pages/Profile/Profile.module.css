@@ -27,5 +27,6 @@
             'SkillsGraph        SkillsGraph '
             'ScoreGraph        ScoreGraph '
             'NutritionInfo     NutritionInfo      ';
+        padding-bottom: 55px;
     }
 }
