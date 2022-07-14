@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "vitest",
+    "test:prepush": "vitest run",
     "coverage": "vitest --coverage"
   },
   "dependencies": {
