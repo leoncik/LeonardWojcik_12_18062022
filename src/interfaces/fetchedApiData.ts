@@ -45,10 +45,13 @@ export interface IUserAverageSessions {
     };
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface IAverageSessions {
-    day: number | string;
+    // Input data day should be number and output data day should be string.
+    day: any;
     sessionLength: number;
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 // User performance
 export interface IUserPerformance {
