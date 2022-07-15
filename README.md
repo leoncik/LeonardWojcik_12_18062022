@@ -22,7 +22,7 @@ SportSee is a sport coach app. For this project, I had to develop the profile pa
 ### Highlights
 
 -   This project was made with [React](https://reactjs.org/) and builded with [Vite](https://vitejs.dev/).
--   I had the choice between [D3.js](https://d3js.org/) and [Recharts](https://recharts.org/) to build the charts. After testing both, I sticked with Recharts for more convenience. A simple bar chart test and setup of D3 + React can be found of [this branch](https://github.com/leoncik/LeonardWojcik_12_18062022/tree/feat/graph-d3-version) (created very early in the development so most elements are not integrated. It just gives an idea about how to setup a D3 + React project and structure the code).
+-   I had the choice between [D3.js](https://d3js.org/) and [Recharts](https://recharts.org/) to build the charts. After testing both, I sticked with Recharts for more convenience. A simple bar chart test and setup of D3 + React can be found on [this branch](https://github.com/leoncik/LeonardWojcik_12_18062022/tree/feat/graph-d3-version) (created very early in the development so most elements are not integrated and the graph itself is not completed. It just gives an idea about how to setup a D3 + React project and structure the code).
 -   I used [TypeScript](https://www.typescriptlang.org/) in order to make the code more robust and prevent bugs while formatting data.
 -   In order to ensure the code quality, I have used [Husky](https://typicode.github.io/husky), [lint-staged](https://www.npmjs.com/package/lint-staged), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) to lint and format the code.
 -   I have written and set up some tests using [Vitest](https://vitest.dev/). They will run before each "push" (through Husky) in order to prevent regressions.
@@ -69,6 +69,6 @@ For more information about this API, check the README inside of the API folder o
 
 To run and watch the tests in the console, run : `yarn test`.
 
-To get a coverage report while running the tests, run : `yarn test`. If you want to visualize the coverage report, you can run a live server (if you are using VSCode, I recommend using [this extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)) and use this url : http://127.0.0.1:5500/coverage/index.html
+To get a coverage report while running the tests, run : `yarn coverage`. If you want to visualize the coverage report, you can run a live server (if you are using VSCode, I recommend using [this extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)) and use this url : http://127.0.0.1:5500/coverage/index.html
 
 [⬆ Back to top](#sportsee)
