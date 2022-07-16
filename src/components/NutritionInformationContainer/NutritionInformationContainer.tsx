@@ -22,6 +22,13 @@ type NutritionInformationContainerProps = {
     error: string;
 };
 
+/**
+ * A component that should display user's nutrition information.
+ * @param { IKeyData | any} nutritionData - Provided data for nutrition cards.
+ * @param {boolean} loading - Display a loading element if true.
+ * @param {string} error - Error message.
+ * @returns {React.ReactElement} Nutrition cards.
+ */
 function NutritionInformationContainer({
     nutritionData,
     loading,
@@ -35,25 +42,25 @@ function NutritionInformationContainer({
         <div className={classes['nutritions-info-container']}>
             <NutritionInformationElement
                 type={'Calories'}
-                quantity={nutritionData.calorieCount}
+                quantity={nutritionData?.calorieCount}
                 unit={'kCal'}
                 icon={<Energy fillColor="rgba(255,0,0, 1)" />}
             />
             <NutritionInformationElement
                 type={'Protéines'}
-                quantity={nutritionData.proteinCount}
+                quantity={nutritionData?.proteinCount}
                 unit={'g'}
                 icon={<Protein fillColor="rgba(74, 184, 255, 1)" />}
             />
             <NutritionInformationElement
                 type={'Glucides'}
-                quantity={nutritionData.carbohydrateCount}
+                quantity={nutritionData?.carbohydrateCount}
                 unit={'g'}
                 icon={<Carbohydrate fillColor="rgba(253, 204, 12, 1)" />}
             />
             <NutritionInformationElement
                 type={'Lipides'}
-                quantity={nutritionData.lipidCount}
+                quantity={nutritionData?.lipidCount}
                 unit={'g'}
                 icon={<Lipid fillColor="rgba(253, 81, 129, 1)" />}
             />

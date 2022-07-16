@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Page components
-import NutritionInformationContainer from '../../components/NutritionInformationContainer/NutritionInformation';
+import NutritionInformationContainer from '../../components/NutritionInformationContainer/NutritionInformationContainer';
 import WelcomingInfo from '../../components/WelcomingInfo/WelcomingInfo';
 import Error404 from '../Error404/Error404';
 

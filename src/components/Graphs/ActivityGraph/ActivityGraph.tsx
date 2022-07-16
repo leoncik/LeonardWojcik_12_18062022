@@ -28,6 +28,13 @@ type ActivityGraphProps = {
     error: string;
 };
 
+/**
+ * A component that should display user's activity in a form of a bar chart.
+ * @param {Array<IActivitySessions> | undefined} graphData - Provided data for the graph.
+ * @param {boolean} loading - Display a loading element if true.
+ * @param {string} error - Error message.
+ * @returns {React.ReactElement} Graph component.
+ */
 function ActivityGraph({ graphData, loading, error }: ActivityGraphProps) {
     // Watch page width.
     // If the page width is lower than 750px, set barChart to vertical.

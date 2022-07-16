@@ -5,6 +5,11 @@ type LoadingSpinnerProps = {
     spinnerColor: string;
 };
 
+/**
+ * A loading spinner.
+ * @param {string} spinnerColor - Color of the loading spinner.
+ * @returns {React.ReactElement} loading spinner component.
+ */
 function LoadingSpinner({ spinnerColor }: LoadingSpinnerProps) {
     return (
         <div className={classes['loading-spinner']}>

@@ -17,6 +17,13 @@ type SessionLengthGraphProps = {
     error: string;
 };
 
+/**
+ * A component that should display user's sessions lengths in a form of a line chart.
+ * @param {Array<IAverageSessions> | undefined} graphData - Provided data for the graph.
+ * @param {boolean} loading - Display a loading element if true.
+ * @param {string} error - Error message.
+ * @returns {React.ReactElement} Graph component.
+ */
 function SessionLengthGraph({
     graphData,
     loading,
