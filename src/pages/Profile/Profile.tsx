@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 // Page components
 import NutritionInformationContainer from '../../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../../components/WelcomingInfo/WelcomingInfo';
+import Error404 from '../Error404/Error404';
 
 // Graphs components
 import GraphContainer from '../../components/Graphs/GraphContainer/GraphContainer';
@@ -67,7 +68,6 @@ function Profile() {
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await genericFetch(path);
             if (retrievedData) {
-                console.log(retrievedData);
                 setUserData(retrievedData.data.userInfos.firstName);
                 setUserScore(retrievedData.data.score);
                 setUserScoreValue(retrievedData.data.scoreValue);
@@ -131,7 +131,12 @@ function Profile() {
         );
     }, []);
 
-    return (
+    return userInfoError &&
+        activityError &&
+        performanceError &&
+        sessionLengthError ? (
+        <Error404 />
+    ) : (
         <div className="profile-content">
             <WelcomingInfo
                 firstName={userData}

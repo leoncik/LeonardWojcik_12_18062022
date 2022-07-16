@@ -16,7 +16,7 @@ function PrimaryNavigation() {
                 <ul>
                     <div className="logo-container">
                         <NavLink to="/" className={classes['header-logo']}>
-                            <img src={logo} alt="logo" />
+                            <img src={logo} alt="Logo SportSee" />
                             <p>SportSee</p>
                         </NavLink>
                     </div>

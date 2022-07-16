@@ -16,7 +16,7 @@ function Error404() {
                     <div>
                         <img
                             src={logo}
-                            alt=""
+                            alt="Logo erreur 404"
                             className={classes['error404-logo']}
                         />
                     </div>
