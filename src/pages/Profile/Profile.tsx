@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 // Page components
 import NutritionInformationContainer from '../../components/NutritionInformationContainer/NutritionInformation';
 import WelcomingInfo from '../../components/WelcomingInfo/WelcomingInfo';
+import Error404 from '../Error404/Error404';
 
 // Graphs components
 import GraphContainer from '../../components/Graphs/GraphContainer/GraphContainer';
@@ -18,7 +19,7 @@ import classes from './Profile.module.css';
 
 // Helpers
 import * as endpoint from '../../helpers/apiEndpoints';
-import handleFetch from '../../helpers/fetchHandlers';
+import { isStatusOk, handleFetch } from '../../helpers/fetchHandlers';
 
 // Interfaces
 import {
@@ -67,9 +68,9 @@ function Profile() {
         setIsUserInfoLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            if (retrievedData) {
+            if (isStatusOk(retrievedData)) {
                 const { fetchedData, scoreData, nutritionData, scoreValue } =
-                    retrievedData;
+                    retrievedData.body;
                 setUserData(fetchedData.data.userInfos.firstName);
                 setUserScore(scoreData);
                 setUserScoreValue(scoreValue);
@@ -90,8 +91,8 @@ function Profile() {
         setIsActivityLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            retrievedData
-                ? setActivityData(retrievedData.data.sessions)
+            isStatusOk(retrievedData)
+                ? setActivityData(retrievedData.body.data.sessions)
                 : setActivityError(errorMessage);
             setIsActivityLoading(false);
         };
@@ -106,8 +107,8 @@ function Profile() {
         setIsSessionLengthLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            retrievedData
-                ? setSessionLengthData(retrievedData)
+            isStatusOk(retrievedData)
+                ? setSessionLengthData(retrievedData.body)
                 : setSessionLengthError(errorMessage);
             setIsSessionLengthLoading(false);
         };
@@ -122,8 +123,8 @@ function Profile() {
         setIsPerformanceLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            retrievedData
-                ? setPerformanceData(retrievedData.data.data)
+            isStatusOk(retrievedData)
+                ? setPerformanceData(retrievedData.body.data.data)
                 : setPerformanceError(errorMessage);
             setIsPerformanceLoading(false);
         };
@@ -133,7 +134,12 @@ function Profile() {
         );
     }, []);
 
-    return (
+    return userInfoError &&
+        activityError &&
+        performanceError &&
+        sessionLengthError ? (
+        <Error404 />
+    ) : (
         <div className="profile-content">
             <WelcomingInfo
                 firstName={userData}

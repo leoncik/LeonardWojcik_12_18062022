@@ -1,6 +1,9 @@
 // Helpers
 import handleFormatData from './handleFormatData';
 
+// Interfaces
+import { IFetchObject } from '../interfaces/fetchedApiData';
+
 /**
  * Fetches data from url.
  * @param {string} url - Fetched url
@@ -13,13 +16,20 @@ export const genericFetch = async (
     method = 'GET',
     headers = {}
 ) => {
-    try {
-        const response = await fetch(url, { method, headers });
-        return await response.json();
-    } catch (error) {
-        console.log(error);
-    }
+    const response = await fetch(url, { method, headers });
+    const body = await response.json();
+    const { status } = response;
+    const responseObject = { status, body };
+    return responseObject;
 };
+
+/**
+ * Checks if the status of a fetch is ok
+ * @param {IFetchObject} data - Fetched data.
+ * @returns {boolean}
+ */
+export const isStatusOk = (data: IFetchObject) =>
+    data.status < 300 && data.status >= 200 ? true : false;
 
 /**
  * Fetch data from url and format It.
@@ -27,13 +37,10 @@ export const genericFetch = async (
  * @param {string} id - User's id
  * @returns Formatted data
  */
-async function handleFetch(path: string, id: string | undefined) {
+export async function handleFetch(path: string, id: string | undefined) {
     const fetchedData = await genericFetch(path);
-    let data;
-    fetchedData === 'can not get user'
-        ? (data = null)
-        : (data = handleFormatData(fetchedData, path, id));
-    return data;
+    if (isStatusOk(fetchedData)) {
+        fetchedData.body = handleFormatData(fetchedData.body, path, id);
+    }
+    return fetchedData;
 }
-
-export default handleFetch;

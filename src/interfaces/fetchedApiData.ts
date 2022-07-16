@@ -66,3 +66,14 @@ export interface IPerformanceData {
     value: number;
     kind: number | string;
 }
+
+// Fetch object
+export interface IFetchObject {
+    status: number;
+    body:
+        | string
+        | IUserInfo
+        | IUserActivity
+        | IUserAverageSessions
+        | IUserPerformance;
+}
