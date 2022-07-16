@@ -13,16 +13,28 @@ function SecondaryNavigation() {
             <nav>
                 <ul>
                     <li className={classes['secondary-navigation__item']}>
-                        <img src={meditation} alt="" />
+                        <img
+                            src={meditation}
+                            alt="Icône de navigation méditation."
+                        />
                     </li>
                     <li className={classes['secondary-navigation__item']}>
-                        <img src={swimming} alt="" />
+                        <img
+                            src={swimming}
+                            alt="Icône de navigation natation."
+                        />
                     </li>
                     <li className={classes['secondary-navigation__item']}>
-                        <img src={cycling} alt="" />
+                        <img
+                            src={cycling}
+                            alt="Icône de navigation cyclisme."
+                        />
                     </li>
                     <li className={classes['secondary-navigation__item']}>
-                        <img src={weightlifting} alt="" />
+                        <img
+                            src={weightlifting}
+                            alt="Icône de navigation haltère."
+                        />
                     </li>
                 </ul>
             </nav>

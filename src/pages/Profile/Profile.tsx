@@ -18,7 +18,7 @@ import classes from './Profile.module.css';
 
 // Helpers
 import * as endpoint from '../../helpers/apiEndpoints';
-import handleFetch from '../../helpers/handleFetch';
+import handleFetch from '../../helpers/fetchHandlers';
 
 // Interfaces
 import {
