@@ -1,5 +1,5 @@
 // Page components
-import PrimaryNavigation from '../MainNavigation/PrimaryNavigation';
+import PrimaryNavigation from '../PrimaryNavigation/PrimaryNavigation';
 import Profile from '../../pages/Profile/Profile';
 import Layout from '../Layout/Layout';
 import Home from '../../pages/Home/Home';
