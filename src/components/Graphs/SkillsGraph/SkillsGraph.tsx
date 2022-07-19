@@ -26,9 +26,9 @@ function SkillsGraph({ graphData, loading, error }: SkillsGraphProps) {
     // Watch page width.
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     useEffect(() => {
-        window.addEventListener('resize', () =>
-            setWindowWidth(window.innerWidth)
-        );
+        const changeWidth = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', changeWidth);
+        return () => window.removeEventListener('resize', changeWidth);
     }, []);
 
     return loading ? (
