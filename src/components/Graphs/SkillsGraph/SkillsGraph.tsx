@@ -24,9 +24,7 @@ type SkillsGraphProps = {
 
 /**
  * A component that should display user's performance in a form of a radar chart.
- * @param {Array<IPerformanceData> | undefined} graphData - Provided data for the graph.
- * @param {boolean} loading - Display a loading element if true.
- * @param {string} error - Error message.
+ * @param {Array<IPerformanceData> | undefined} props - Provided data for the graph.
  * @returns {React.ReactElement} Graph component.
  */
 function SkillsGraph({ graphData, loading, error }: SkillsGraphProps) {

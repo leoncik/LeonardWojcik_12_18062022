@@ -24,9 +24,7 @@ type NutritionInformationContainerProps = {
 
 /**
  * A component that should display user's nutrition information.
- * @param { IKeyData | any} nutritionData - Provided data for nutrition cards.
- * @param {boolean} loading - Display a loading element if true.
- * @param {string} error - Error message.
+ * @param { IKeyData | any} props - Provided data for nutrition cards.
  * @returns {React.ReactElement} Nutrition cards.
  */
 function NutritionInformationContainer({

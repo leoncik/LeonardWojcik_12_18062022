@@ -7,7 +7,7 @@ type LoadingSpinnerProps = {
 
 /**
  * A loading spinner.
- * @param {string} spinnerColor - Color of the loading spinner.
+ * @param {string} props - Color of the loading spinner.
  * @returns {React.ReactElement} loading spinner component.
  */
 function LoadingSpinner({ spinnerColor }: LoadingSpinnerProps) {

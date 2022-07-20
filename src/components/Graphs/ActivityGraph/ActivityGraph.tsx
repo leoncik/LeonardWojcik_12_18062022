@@ -30,9 +30,7 @@ type ActivityGraphProps = {
 
 /**
  * A component that should display user's activity in a form of a bar chart.
- * @param {Array<IActivitySessions> | undefined} graphData - Provided data for the graph.
- * @param {boolean} loading - Display a loading element if true.
- * @param {string} error - Error message.
+ * @param {Array<IActivitySessions> | undefined} props - Provided data for the graph.
  * @returns {React.ReactElement} Graph component.
  */
 function ActivityGraph({ graphData, loading, error }: ActivityGraphProps) {

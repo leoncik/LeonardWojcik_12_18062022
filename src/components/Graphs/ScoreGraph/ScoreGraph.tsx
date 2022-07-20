@@ -21,9 +21,7 @@ type ScoreGraphProps = {
 
 /**
  * A component that should display user's score in a form of a radial bar chart.
- * @param {Array<IAverageSessions> | undefined} graphData - Provided data for the graph.
- * @param {boolean} loading - Display a loading element if true.
- * @param {string} error - Error message.
+ * @param {Array<IAverageSessions> | undefined} props - Provided data for the graph.
  * @returns {React.ReactElement} Graph component.
  */
 function ScoreGraph({
