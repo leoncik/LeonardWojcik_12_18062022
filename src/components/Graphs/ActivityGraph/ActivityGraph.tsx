@@ -46,11 +46,10 @@ function ActivityGraph({ graphData, loading, error }: ActivityGraphProps) {
         return () => window.removeEventListener('resize', changeWidth);
     }, []);
 
-    return loading ? (
-        <LoadingSpinner spinnerColor="#e60000" />
-    ) : error ? (
-        <p>{error}</p>
-    ) : (
+    if (loading) return <LoadingSpinner spinnerColor="#e60000" />;
+    if (error) return <p>{error}</p>;
+
+    return (
         <div style={{ width: '100%', height: '100%' }}>
             {/* HEADER OF THE GRAPH */}
             <header className={classes['graph-header']}>

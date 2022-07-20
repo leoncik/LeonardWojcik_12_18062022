@@ -34,11 +34,11 @@ function NutritionInformationContainer({
     loading,
     error,
 }: NutritionInformationContainerProps) {
-    return loading ? (
-        <LoadingSpinner spinnerColor="#e60000" />
-    ) : error ? (
-        <p>Impossible de récupérer vos informations de nutrition.</p>
-    ) : (
+    if (loading) return <LoadingSpinner spinnerColor="#e60000" />;
+    if (error)
+        return <p>Impossible de récupérer vos informations de nutrition.</p>;
+
+    return (
         <div className={classes['nutritions-info-container']}>
             <NutritionInformationElement
                 type={'Calories'}

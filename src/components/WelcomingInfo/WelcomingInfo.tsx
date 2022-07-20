@@ -8,11 +8,10 @@ type WelcomingInfoProps = {
 };
 
 function WelcomingInfo({ firstName, loading, error }: WelcomingInfoProps) {
-    return loading ? (
-        <p>Chargement…</p>
-    ) : error ? (
-        <p>{error}</p>
-    ) : (
+    if (loading) return <p>Chargement…</p>;
+    if (error) return <p>{error}</p>;
+
+    return (
         <div className="welcoming-info">
             <h1 data-testid="greeting">
                 Bonjour{' '}

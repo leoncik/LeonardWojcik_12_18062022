@@ -34,11 +34,10 @@ function ScoreGraph({
 }: ScoreGraphProps) {
     const circleSize = 300;
 
-    return loading ? (
-        <LoadingSpinner spinnerColor={'#e60000'} />
-    ) : error ? (
-        <p>Impossible de récupérer votre score.</p>
-    ) : (
+    if (loading) return <LoadingSpinner spinnerColor={'#e60000'} />;
+    if (error) return <p>Impossible de récupérer votre score.</p>;
+
+    return (
         <ResponsiveContainer width="99%" height="100%">
             <RadialBarChart
                 width={circleSize}

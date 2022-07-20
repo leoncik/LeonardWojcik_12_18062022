@@ -38,11 +38,10 @@ function SkillsGraph({ graphData, loading, error }: SkillsGraphProps) {
         return () => window.removeEventListener('resize', changeWidth);
     }, []);
 
-    return loading ? (
-        <LoadingSpinner spinnerColor={'#e60000'} />
-    ) : error ? (
-        <p>{error}</p>
-    ) : (
+    if (loading) return <LoadingSpinner spinnerColor={'#e60000'} />;
+    if (error) return <p>{error}</p>;
+
+    return (
         <ResponsiveContainer width="99%" height="100%">
             <RadarChart
                 cx="50%"

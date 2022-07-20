@@ -29,11 +29,10 @@ function SessionLengthGraph({
     loading,
     error,
 }: SessionLengthGraphProps) {
-    return loading ? (
-        <LoadingSpinner spinnerColor={'white'} />
-    ) : error ? (
-        <p>{error}</p>
-    ) : (
+    if (loading) return <LoadingSpinner spinnerColor={'white'} />;
+    if (error) return <p>{error}</p>;
+
+    return (
         <ResponsiveContainer width="99%" height="100%">
             <LineChart
                 data={graphData}
