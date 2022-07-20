@@ -19,7 +19,7 @@ import classes from './Profile.module.css';
 
 // Helpers
 import * as endpoint from '../../helpers/apiEndpoints';
-import { isStatusOk, handleFetch } from '../../helpers/fetchHandlers';
+import { handleFetch } from '../../helpers/fetchHandlers';
 
 // Interfaces
 import {
@@ -68,7 +68,7 @@ function Profile() {
         setIsUserInfoLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            if (isStatusOk(retrievedData)) {
+            if (retrievedData.isSuccess) {
                 const { fetchedData, scoreData, nutritionData, scoreValue } =
                     retrievedData.body;
                 setUserData(fetchedData.data.userInfos.firstName);
@@ -91,7 +91,7 @@ function Profile() {
         setIsActivityLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            isStatusOk(retrievedData)
+            retrievedData.isSuccess
                 ? setActivityData(retrievedData.body.data.sessions)
                 : setActivityError(errorMessage);
             setIsActivityLoading(false);
@@ -107,7 +107,7 @@ function Profile() {
         setIsSessionLengthLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            isStatusOk(retrievedData)
+            retrievedData.isSuccess
                 ? setSessionLengthData(retrievedData.body)
                 : setSessionLengthError(errorMessage);
             setIsSessionLengthLoading(false);
@@ -123,7 +123,7 @@ function Profile() {
         setIsPerformanceLoading(true);
         const fetchData = async (path: string, errorMessage: string) => {
             const retrievedData = await handleFetch(path, id);
-            isStatusOk(retrievedData)
+            retrievedData.isSuccess
                 ? setPerformanceData(retrievedData.body.data.data)
                 : setPerformanceError(errorMessage);
             setIsPerformanceLoading(false);

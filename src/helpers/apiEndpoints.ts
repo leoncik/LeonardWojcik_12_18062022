@@ -10,7 +10,7 @@ const apiBaseUrl = 'http://localhost:3000';
  * @returns {string} Returns the endpoint for the user informations.
  */
 const userEndpoint = (id: string | undefined): string =>
-    `${apiBaseUrl}/user/${id}`;
+    id ? `${apiBaseUrl}/user/${id}` : '';
 
 /**
  * Retrieves a user's activity day by day with kilograms and calories.
@@ -18,7 +18,7 @@ const userEndpoint = (id: string | undefined): string =>
  * @returns {string} Returns the endpoint for the user activity.
  */
 const activityEndpoint = (id: string | undefined): string =>
-    `${apiBaseUrl}/user/${id}/activity`;
+    id ? `${apiBaseUrl}/user/${id}/activity` : '';
 
 /**
  * Retrieves the average sessions of a user per day. The week starts on Monday.
@@ -26,7 +26,7 @@ const activityEndpoint = (id: string | undefined): string =>
  * @returns {string} Returns the endpoint for the user average sessions.
  */
 const averageSessionEndpoint = (id: string | undefined): string =>
-    `${apiBaseUrl}/user/${id}/average-sessions`;
+    id ? `${apiBaseUrl}/user/${id}/average-sessions` : '';
 
 /**
  * Retrieves a user's performance (energy, endurance, etc.)
@@ -34,7 +34,7 @@ const averageSessionEndpoint = (id: string | undefined): string =>
  * @returns {string} Returns the endpoint for the user performance.
  */
 const performanceEndpoint = (id: string | undefined): string =>
-    `${apiBaseUrl}/user/${id}/performance`;
+    id ? `${apiBaseUrl}/user/${id}/performance` : '';
 
 export {
     userEndpoint,

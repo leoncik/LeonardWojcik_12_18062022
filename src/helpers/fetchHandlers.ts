@@ -19,7 +19,8 @@ export const genericFetch = async (
     const response = await fetch(url, { method, headers });
     const body = await response.json();
     const { status } = response;
-    const responseObject = { status, body };
+    const isSuccess = false;
+    const responseObject = { status, body, isSuccess };
     return responseObject;
 };
 
@@ -41,6 +42,9 @@ export async function handleFetch(path: string, id: string | undefined) {
     const fetchedData = await genericFetch(path);
     if (isStatusOk(fetchedData)) {
         fetchedData.body = handleFormatData(fetchedData.body, path, id);
+        fetchedData.isSuccess = true;
+    } else {
+        fetchedData.isSuccess = false;
     }
     return fetchedData;
 }
